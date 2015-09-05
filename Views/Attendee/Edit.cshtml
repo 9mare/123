@@ -1,0 +1,50 @@
+﻿@model ConferenceManagementSystem.Models.Attendee
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2 class="not-login">Edit<small></small></h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal form-center form-gradient">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.AttendeeId)
+        @Html.HiddenFor(model => model.ConferenceId)
+        @Html.HiddenFor(model => model.UserId)
+        @Html.HiddenFor(model => model.PaymentStatusId)
+        @Html.HiddenFor(model => model.RegDate)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserTypeId, "Register As", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DropDownList("UserTypeId", "Please Select")
+                @Html.ValidationMessageFor(model => model.UserTypeId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FeeId, "Registration Fee Category", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DropDownList("FeeId", "Please Select")
+                @Html.ValidationMessageFor(model => model.FeeId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Save" class="btn btn-default btn-gradient" />
+            </div>
+        </div>
+        <hr/>
+    </div>
+}
+
+<div class="col-md-offset-2">
+    @Html.ActionLink("Back to Home", "Home", "Main", new { id = Model.ConferenceId }, new { @class = "btn btn-default btn-gradient" })
+</div>

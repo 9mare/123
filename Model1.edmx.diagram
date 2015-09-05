@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b7a2be7645a5441d8ea6e68335a6113f" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="ConferenceDBModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.AbstractFileFormat" Width="1.5" PointX="19.5" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Admin" Width="1.5" PointX="3.875" PointY="47.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Alignment" Width="1.5" PointX="19.5" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Attendee" Width="1.5" PointX="12.375" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Conference" Width="1.5" PointX="16.625" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Content" Width="1.5" PointX="14.5" PointY="52.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Country" Width="1.5" PointX="8.125" PointY="48.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.DateDealine" Width="1.5" PointX="19.75" PointY="52.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.EmailTag" Width="1.5" PointX="3.75" PointY="50.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Fee" Width="1.5" PointX="14.625" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.FontName" Width="1.5" PointX="19.375" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Gender" Width="1.5" PointX="8.25" PointY="53.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.InvitationEmailStatu" Width="1.5" PointX="6" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.InvitationStatu" Width="1.5" PointX="12.25" PointY="42.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.NotificationEmail" Width="1.5" PointX="16.25" PointY="51.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Paper" Width="1.5" PointX="6" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.PaymentStatu" Width="1.5" PointX="12.625" PointY="53.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Reviewer" Width="1.5" PointX="9.625" PointY="42.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.ReviewerType" Width="1.5" PointX="4" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.ReviewItem" Width="1.5" PointX="18.125" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Schedule" Width="1.5" PointX="3.75" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.sysdiagram" Width="1.5" PointX="2.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Title" Width="1.5" PointX="12.375" PointY="44.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.Topic" Width="1.5" PointX="5.75" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.User" Width="1.5" PointX="10.25" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferenceDBModel.UserType" Width="1.5" PointX="10.375" PointY="53.5" IsExpanded="true" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_AbstractFileFormat_dbo_Alignment_AlignmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_AbstractFileFormat_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_AbstractFileFormat_dbo_FontName_FontName_FontNameId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Attendee_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Attendee_dbo_Fee_FeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Attendee_dbo_PaymentStatus_PaymentStatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Attendee_dbo_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Attendee_dbo_UserType_UserTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Content_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_DateDealine_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Fee_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_NotificationEmail_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Paper_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Reviewer_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_ReviewItem_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Topic_dbo_Conference_ConferenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_User_dbo_Country_CountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_User_dbo_Gender_GenderId" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Reviewer_dbo_InvitationEmailStatus_InvitationEmailStatus_InvitationEmailStatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Reviewer_dbo_InvitationStatus_InvitationStatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Paper_dbo_Topic_TopicId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Paper_dbo_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Reviewer_dbo_ReviewerType_ReviewerTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Reviewer_dbo_Title_TitleId" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_Schedule_dbo_Topic_TopicId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConferenceDBModel.FK_dbo_User_dbo_Title_TitleId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

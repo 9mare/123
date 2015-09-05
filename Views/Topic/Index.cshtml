@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.Topic>
+
+@{
+    ViewBag.Title = "Conference Topic";
+}
+
+<h2 class="not-login">Topics <small> topics available</small></h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Menu", "Conference", new { id = TempData["ConferenceId"] }, null)</li>
+    <li class="active">Conference Topic</li>
+</ol>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TopicId }, new { @class = "btn btn-default btn-gradient" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TopicId }, new { @class = "btn btn-default btn-delete" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <p>
+        @Html.ActionLink("Back to Conference Menu", "Menu", "Conference", new { id = TempData["ConferenceId"] }, new { @class = "btn btn-default btn-gradient" })
+        @Html.ActionLink("Create New", "Create", new { id = TempData["ConferenceId"] }, new { @class = "btn btn-default btn-new" })
+    </p>

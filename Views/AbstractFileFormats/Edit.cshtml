@@ -1,0 +1,105 @@
+﻿@model ConferenceManagementSystem.Models.AbstractFileFormat
+
+@{
+    ViewBag.Title = "Edit Paper Format";
+}
+
+<h2 class="not-login">Paper Format<small> decide how submitted paper should be formatted</small></h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Menu", "Conference", new { id = TempData["ConferenceId"] }, null)</li>
+    <li class="active">Edit Paper Format</li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal form-center form-gradient">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.AbstractFileFormatId)
+        @Html.HiddenFor(model => model.ConferenceId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AlignmentId, "AlignmentId", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.DropDownList("AlignmentId", "Please Select")
+                @Html.ValidationMessageFor(model => model.AlignmentId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FontNameId, "FontNameId", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.DropDownList("FontNameId", "Please Select")
+                @Html.ValidationMessageFor(model => model.FontNameId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FontSize, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.FontSize)
+                @Html.ValidationMessageFor(model => model.FontSize)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Margin_Top, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Margin_Top)
+                @Html.ValidationMessageFor(model => model.Margin_Top)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Margin_Bottom, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Margin_Bottom)
+                @Html.ValidationMessageFor(model => model.Margin_Bottom)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Margin_Left, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Margin_Left)
+                @Html.ValidationMessageFor(model => model.Margin_Left)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Margin_Right, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Margin_Right)
+                @Html.ValidationMessageFor(model => model.Margin_Right)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LineSpacing, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.LineSpacing)
+                @Html.ValidationMessageFor(model => model.LineSpacing)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Save" class="btn btn-default btn-gradient" />
+            </div>
+        </div>
+        <hr/>
+    </div>
+}
+
+<div class="col-md-offset-2">
+    <button class="btn btn-default btn-gradient" onclick="goBack()">Go Back</button>
+
+    <script>
+function goBack() {
+    window.history.back();
+}
+    </script>
+</div>

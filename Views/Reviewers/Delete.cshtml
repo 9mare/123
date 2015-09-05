@@ -1,0 +1,82 @@
+﻿@model ConferenceManagementSystem.Models.Reviewer
+
+@{
+    ViewBag.Title = "Confirm Delete";
+}
+
+<h2 class="not-login">Confirm Delete <small class="delete-warnings"> make sure you really want it gone!</small></h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Menu", "Conference", new { id = Model.ConferenceId }, null)</li>
+    <li>@Html.ActionLink("Reviewer List", "Index", null, new { id = Model.ConferenceId }, null)</li>
+    <li class="active">Confirm Delete</li>
+</ol>
+
+<div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    <div class="form-horizontal form-center form-gradient">
+        @Html.HiddenFor(model => model.ReviewerId)
+        @Html.HiddenFor(model => model.TitleId)
+        @Html.HiddenFor(model => model.ReviewerTypeId)
+        @Html.HiddenFor(model => model.ReviewerName)
+        @Html.HiddenFor(model => model.Email)
+        @Html.HiddenFor(model => model.Area)
+        @Html.HiddenFor(model => model.Instituition)
+        @Html.HiddenFor(model => model.InvitationStatusId)
+        @Html.HiddenFor(model => model.InvitationEmailStatusId)
+        @Html.HiddenFor(model => model.ConferenceId)
+        @Html.HiddenFor(model => model.Delete)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReviewerType.Name, "Type", new { @class = "control-label col-md-3" })
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.ReviewerType.Name)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReviewerName, new { @class = "control-label col-md-3" })
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.ReviewerName)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-3" })
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.Email)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Area, new { @class = "control-label col-md-3" })
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.Area)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Instituition, new { @class = "control-label col-md-3" })
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.Instituition)</p>
+            </div>
+        </div>
+        <hr/>
+    </div>
+
+        <div class="form-actions no-color col-md-offset-2">
+            @Html.ActionLink("Back to List", "Index", new { id = Model.ConferenceId }, new { @class = "btn btn-default btn-gradient" })
+            <input type="submit" value="Delete" class="btn btn-default btn-delete" /> 
+        </div>
+}
+</div>
+

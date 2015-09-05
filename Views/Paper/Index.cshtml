@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.Paper>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AttendeeLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create" , "Paper", new { id = TempData["ConferenceId"] } ,null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.conference.ConferenceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaperTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorList)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Affiliation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Presenter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.topic.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbstractFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbstractSubmissionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbstractTotalNumberOfPages)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.conference.ConferenceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaperTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorList)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Affiliation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Presenter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.topic.Name)
+        </td>
+        <th>
+            @Html.ActionLink(item.Prefix, "DownloadFile", new { filename = item.AbstractFile , paperPrefix = item.conference.PaperPrefix}, null)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbstractSubmissionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbstractTotalNumberOfPages)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PaperId })
+        </td>
+    </tr>
+}
+
+</table>
+<td>
+    @Html.ActionLink("Back to Home", "Home", "Main", new { id = TempData["ConferenceId"] } , null)
+</td>

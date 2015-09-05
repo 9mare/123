@@ -1,0 +1,136 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.Attendee>
+
+@{
+    ViewBag.Title = "Participants";
+}
+<script src="http://cdn.datatables.net/tabletools/2.2.3/js/dataTables.tableTools.js"></script>
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/tabletools/2.2.3/css/dataTables.tableTools.css">
+
+
+<h2 class="not-login">Participants<small> registered participants and presenters</small></h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Menu", "Conference", new { id = TempData["ConferenceId"] }, null)</li>
+    <li class="active">Participants</li>
+</ol>
+
+
+<table id="myDataTable">
+    <thead >
+        <tr>
+            <th>
+                No.
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usertype.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fee.Category)
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.Email)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody >
+        @{int rowNo = 0;}
+        @foreach (var item in Model)
+        {
+            <tr class="form-gradient">
+                <td>
+                    @(rowNo += 1)
+                </td>
+                <td>
+                    <a href="@Url.Action("UserDetail", "Attendee", new { id = item.AttendeeId})">@item.user.FullName</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.usertype.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fee.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fee.Normal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AttendeeId }, new { @class = "btn btn-default btn-delete" })
+                </td>
+            </tr>
+        }
+    <tbody>
+</table>
+<br/>
+<div >
+    @Html.ActionLink("Back to Menu", "Menu", "Conference", new { id = TempData["ConferenceId"] }, new { @class = "btn btn-default btn-gradient" })
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myDataTable').DataTable({
+            "iDisplayLength": 20,
+            "aLengthMenu": [[20, 50, 100], [20, 50, 100]],
+            "pagingType": "full_numbers",
+            "language": {
+                "emptyTable": "No record found!",
+                "infoEmpty": "No entries to show"
+            },
+            "columnDefs": [
+                //{ "orderable": false, "targets": [2, 10] }
+            ],
+            "fnDrawCallback": function (oSettings) {
+                var pgr = $(oSettings.nTableWrapper).find('.dataTables_paginate')
+
+                if (oSettings._iDisplayLength > oSettings.fnRecordsDisplay()) {
+                    pgr.hide()
+                } else {
+                    pgr.show()
+                }
+            },
+            "sDom": 'Tfrtip',
+            "oTableTools": {
+                sSwfPath: "http://cdn.datatables.net/tabletools/2.2.3/swf/copy_csv_xls_pdf.swf",
+                "aButtons": [
+                    {
+                        "bFooter": false,
+                        "sExtends": "csv",
+                        "sButtonText": "Export to CSV",
+                        "mColumns": [0, 1, 2, 3, 4],
+                    },
+                    {
+                        "bFooter": false,
+                        "sExtends": "pdf",
+                        "sButtonText": "Save as PDF",
+                        "mColumns": [0, 1, 2, 3, 4],
+                    },
+                    {
+                        "bFooter": false,
+                        "sExtends": "copy",
+                        "sButtonText": "Copy to clipboard",
+                        "mColumns": [0, 1, 2, 3, 4],
+                    },
+                    'print'
+                ]
+            }
+        });
+        $('.dataTables_filter input').attr("placeholder", "Enter search term here");
+
+    });
+</script>

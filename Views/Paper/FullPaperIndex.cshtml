@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.Paper>
+
+@{
+    ViewBag.Title = "FullPaperIndex";
+    Layout = "~/Views/Shared/AttendeeLayout.cshtml";
+}
+
+<h2>FullPaperIndex</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.conference.ConferenceName)
+        </th>
+        <th>
+            Topic
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaperTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorList)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Affiliation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Presenter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullPaperFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullPaperSubmissionDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.conference.ConferenceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.topic.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaperTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorList)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Affiliation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Presenter)
+        </td>
+        <th>
+            @Html.ActionLink(item.Prefix, "DownloadFile", new { filename = item.FullPaperFile, paperPrefix = item.conference.PaperPrefix }, null)
+        </th>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.FullPaperSubmissionDate)
+        </td>
+    </tr>
+}
+
+</table>

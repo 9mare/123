@@ -1,0 +1,86 @@
+﻿@model ConferenceManagementSystem.Models.ReviewItem
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/AttendeeLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ReviewItem</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ReviewItemId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OverallComments, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OverallComments)
+                @Html.ValidationMessageFor(model => model.OverallComments)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConferenceId, "ConferenceId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ConferenceId", String.Empty)
+                @Html.ValidationMessageFor(model => model.ConferenceId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AbstractSufficientlyInformative, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AbstractSufficientlyInformative)
+                @Html.ValidationMessageFor(model => model.AbstractSufficientlyInformative)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClarityInThePresentationOfFindings, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ClarityInThePresentationOfFindings)
+                @Html.ValidationMessageFor(model => model.ClarityInThePresentationOfFindings)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MethodologyAppropriateToStudy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MethodologyAppropriateToStudy)
+                @Html.ValidationMessageFor(model => model.MethodologyAppropriateToStudy)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConclusionSupportedByDataAnalysis, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConclusionSupportedByDataAnalysis)
+                @Html.ValidationMessageFor(model => model.ConclusionSupportedByDataAnalysis)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoveltyOfFinding, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NoveltyOfFinding)
+                @Html.ValidationMessageFor(model => model.NoveltyOfFinding)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

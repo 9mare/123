@@ -1,0 +1,67 @@
+﻿@model ConferenceManagementSystem.Models.Fee
+
+@{
+    ViewBag.Title = "Confirm Delete";
+}
+
+<h2 class="not-login">Confirm Delete <small class="delete-warnings"> make sure you really want it gone!</small></h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index", new { id = Model.ConferenceId })</li>
+    <li class="active">Confirm Delete </li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal form-center form-gradient">
+        <br/>
+        @Html.HiddenFor(model => model.ConferenceId)
+        @Html.HiddenFor(model => model.FeeId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-3" })
+            @Html.HiddenFor(model => model.Category)
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.Category)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Currency, new { @class = "control-label col-md-3" })
+            @Html.HiddenFor(model => model.Currency)
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.Currency)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EarlyBird, new { @class = "control-label col-md-3" })
+            @Html.HiddenFor(model => model.EarlyBird)
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.EarlyBird)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Normal, new { @class = "control-label col-md-3" })
+            @Html.HiddenFor(model => model.Normal)
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.Normal)</p>
+            </div>
+        </div>
+        <br/>
+    </div>
+
+        <div class="form-actions no-color col-md-offset-2">
+            <hr />
+            @Html.ActionLink("Back to List", "Index", new { id = Model.ConferenceId }, new { @class = "btn btn-default btn-gradient"})
+            <input type="submit" value="Delete" class="btn btn-default btn-delete" />
+        </div>
+    }
+

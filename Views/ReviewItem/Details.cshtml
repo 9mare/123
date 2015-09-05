@@ -1,0 +1,75 @@
+﻿@model ConferenceManagementSystem.Models.ReviewItem
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AttendeeLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReviewItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Conference.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conference.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OverallComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OverallComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AbstractSufficientlyInformative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AbstractSufficientlyInformative)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClarityInThePresentationOfFindings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClarityInThePresentationOfFindings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MethodologyAppropriateToStudy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MethodologyAppropriateToStudy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConclusionSupportedByDataAnalysis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConclusionSupportedByDataAnalysis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoveltyOfFinding)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoveltyOfFinding)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReviewItemId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

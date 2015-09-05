@@ -1,0 +1,161 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.Paper>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.conference.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.topic.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaperTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorList)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Co_Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Affiliation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Presenter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abstract)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaperDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbstractFile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullPaperFile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CameraReadyPaperFile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keywords)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prefix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbstractSubmissionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullPaperSubmissionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CameraReadyPaperSubmissionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbstractSubmissionNotification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalNumberOfPages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marks)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.conference.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.topic.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaperTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorList)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Co_Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Affiliation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Presenter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abstract)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaperDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbstractFile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullPaperFile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CameraReadyPaperFile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keywords)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prefix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbstractSubmissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullPaperSubmissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CameraReadyPaperSubmissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbstractSubmissionNotification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalNumberOfPages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marks)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.PaperId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.PaperId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.PaperId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

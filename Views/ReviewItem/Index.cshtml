@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.ReviewItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AttendeeLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Conference.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OverallComments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbstractSufficientlyInformative)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClarityInThePresentationOfFindings)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MethodologyAppropriateToStudy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConclusionSupportedByDataAnalysis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoveltyOfFinding)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conference.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OverallComments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbstractSufficientlyInformative)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClarityInThePresentationOfFindings)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MethodologyAppropriateToStudy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConclusionSupportedByDataAnalysis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoveltyOfFinding)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewItemId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReviewItemId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewItemId })
+        </td>
+    </tr>
+}
+
+</table>

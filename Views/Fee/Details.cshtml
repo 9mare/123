@@ -1,0 +1,51 @@
+﻿@model ConferenceManagementSystem.Models.Fee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fee</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.conference.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conference.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlyBird)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EarlyBird)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Normal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Normal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FeeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

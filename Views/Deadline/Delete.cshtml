@@ -1,0 +1,81 @@
+﻿@model ConferenceManagementSystem.Models.DateDealine
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DateDealine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Abstract_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abstract_Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AbstractAcceptance_Notif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AbstractAcceptance_Notif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullPaper_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullPaper_Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaperAcceptance_Notif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaperAcceptance_Notif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CameraReadyPaper_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CameraReadyPaper_Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlyBird_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EarlyBird_Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParticipantRegistration_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParticipantRegistration_Deadline)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

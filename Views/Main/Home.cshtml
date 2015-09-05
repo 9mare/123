@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.Conference>
+
+@{
+    ViewBag.Title = "Conference Home";
+    //Layout = "~/Views/Shared/AttendeeLayout.cshtml";
+}
+
+<h2 class="not-login">Home</h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index", "Main", null, null)</li>
+    <li class="active">View Conference</li>
+</ol>
+
+<div class="menubox-user">
+    @Html.ActionLink("My Status", "Status", "Attendee", new { id = TempData["ConferenceId"] },new {  @class = "btn-default btn-menu-user" })
+    @Html.ActionLink("Abstract", "Index", "Paper", new { id = TempData["ConferenceId"] }, new { @class = "btn-default btn-menu-user" })
+    @Html.ActionLink("Full Paper", "FullPaperIndex", "Paper", new { id = TempData["ConferenceId"] }, new { @class = "btn-default btn-menu-user" })
+    @Html.ActionLink("Camera-Ready Paper", "CameraReadyIndex", "Paper", new { id = TempData["ConferenceId"] }, new { @class = "btn-default btn-menu-user" })
+</div>
+
+<hr/>
+
+<div class="form-horizontal form-center form-gradient">
+    @Html.Raw(ViewBag.welcomeText)
+</div>
+
+@Html.Raw(TempData["msg"])

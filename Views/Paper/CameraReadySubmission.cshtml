@@ -1,0 +1,73 @@
+﻿@model ConferenceManagementSystem.Models.Paper
+
+@{
+    ViewBag.Title = "CameraReadySubmission";
+    Layout = "~/Views/Shared/AttendeeLayout.cshtml";
+}
+
+<h2>CameraReadySubmission</h2>
+
+@using (Html.BeginForm("CameraReadySubmission", "Paper", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Paper</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.PaperId)
+        @Html.HiddenFor(model => model.ConferenceId)
+        @Html.HiddenFor(model => model.UserId)
+        @Html.HiddenFor(model => model.PaperTitle)
+        @Html.HiddenFor(model => model.AuthorList)
+        @Html.HiddenFor(model => model.Affiliation)
+        @Html.HiddenFor(model => model.Presenter)
+        @Html.HiddenFor(model => model.Abstract)
+        @Html.HiddenFor(model => model.AbstractFile)
+        @Html.HiddenFor(model => model.Keywords)
+        @Html.HiddenFor(model => model.TopicId)
+        @Html.HiddenFor(model => model.AbstractTotalNumberOfPages)
+        @Html.HiddenFor(model => model.Prefix)
+        @Html.HiddenFor(model => model.AbstractSubmissionDate)
+        @Html.HiddenFor(model => model.FullPaperFile)
+        @Html.HiddenFor(model => model.FullPaperSubmissionDate)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConferenceId, "Conference", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.conference.ConferenceName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PaperTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.PaperTitle)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Presenter, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Presenter)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CameraReadyPaperFile, new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                <input type="file" name="CameraReadyPaperFile" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

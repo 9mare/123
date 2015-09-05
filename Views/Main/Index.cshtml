@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.Conference>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+
+<h2 class="not-login">Available Conference<small></small></h2>
+
+<ol class="breadcrumb">
+    <li class="active">Home</li>
+</ol>
+
+
+<table class="table">
+    <tr>
+        <th>
+            No.
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConferenceName)
+        </th>
+        <th></th>
+    </tr>
+
+    @{int rowNo = 0;}
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @(rowNo += 1)
+            </td>
+            <td>
+                @Html.ActionLink(item.ConferenceName, "Home", "Main", new { id = item.ConferenceId }, null)
+            </td>
+        </tr>
+    }
+
+</table>

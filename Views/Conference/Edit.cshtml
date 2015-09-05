@@ -1,0 +1,133 @@
+﻿@model ConferenceManagementSystem.Models.Conference
+
+@{
+    ViewBag.Title = "Edit User";
+}
+
+<h2 class="not-login">Edit <small> customize user's detail here</small></h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index")</li>
+    <li class="active">Edit User</li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal form-center form-gradient">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ConferenceId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.HiddenFor(model => model.Username)
+                @Html.DisplayFor(model => model.Username)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmedPassword, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.ConfirmedPassword)
+                @Html.ValidationMessageFor(model => model.ConfirmedPassword)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConferenceName, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.ConferenceName)
+                @Html.ValidationMessageFor(model => model.ConferenceName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Website, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Website)
+                @Html.ValidationMessageFor(model => model.Website)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Date)
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactName, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.ContactName)
+                @Html.ValidationMessageFor(model => model.ContactName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Contact, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Contact)
+                @Html.ValidationMessageFor(model => model.Contact)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PaperPrefix, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.PaperPrefix)
+                @Html.ValidationMessageFor(model => model.PaperPrefix)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NotificationEmails, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.ActionLink("Edit", "Edit", "NotificationEmail", new { id = Model.ConferenceId }, new { @class = "btn btn-default btn-gradient" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fees, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.ActionLink("Edit", "Index", "Fee", new { id = Model.ConferenceId }, new { @class = "btn btn-default btn-gradient" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Save" class="btn btn-default btn-gradient" />
+            </div>
+        </div>
+        <hr/>
+    </div>
+}
+
+<div class="col-md-offset-2">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-gradient" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Date").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/MM/yy'
+            });
+        });
+    </script>
+}

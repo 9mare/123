@@ -1,0 +1,132 @@
+﻿@model ConferenceManagementSystem.Models.Conference
+
+@{
+    ViewBag.Title = "View User Details";
+}
+
+<h2 class="not-login">User Details</h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index")</li>
+    <li class="active">User Detail</li>
+</ol>
+
+<div class="form-horizontal form-center form-gradient">
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">      
+            @Html.DisplayFor(model => model.Username, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConferenceName, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static"> 
+            @Html.DisplayFor(model => model.ConferenceName, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Website, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.Website, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.Date, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ContactName, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.ContactName, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Contact, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.Contact, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PaperPrefix, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.PaperPrefix, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Short_Name, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.Short_Name, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ChairmanName, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.ChairmanName, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ChairmanEmail, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.ChairmanEmail, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConferencePhone, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.ConferencePhone, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SecretariatAddress, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.SecretariatAddress, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConferenceTime, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.ConferenceTime, new { @class = "col-md-3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConferenceVenue, new { @class = "control-label col-md-3" })
+
+        <div class="form-control-static">
+            @Html.DisplayFor(model => model.ConferenceVenue, new { @class = "col-md-3" })
+        </div>
+    </div>
+    <hr />
+</div>
+<div class="col-md-offset-2">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ConferenceId }, new { @class = "btn btn-default btn-gradient" }) 
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-gradient" })
+</div>

@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Abstract_Acceptance" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {USER_TITLE}. {USER_NAME},&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;On behalf of the {CONF_SHORT} Committee, we are pleased to inform you that your submitted abstract ({PAPER_ID}) entitled "{PAPER_TITLE}", has been accepted&amp;nbsp; for this conference. You are therefore requested to submit the extended abstract for Technical Reviewing process before&lt;strong&gt;{FULL_PAPER_DATE}&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://submit.confbay.com/%7BPAPER_SUBMIT_LINK%7D"&gt;Submit extended abstract now&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;You are strictly advised to adhere to the conference template which can be downloaded from the conference website, under "Conference &amp;gt; Download".&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We look forward to receive your extended abstract very soon.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Again, thank you very much for your submission.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;br /&gt;&lt;br /&gt;{CONF_SHORT} Administration&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website:&amp;nbsp;&lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Abstract_Rejection" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {USER_TITLE}. {USER_NAME},&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;On behalf of the {CONF_NAME} Committee, we regret to inform you that your submitted abstract ({PAPER_ID}) entitled "{PAPER_TITLE}", is not within the scope of this conference thus declined. We appreciate your effort and thank you for giving us the opportunity to view your work.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Again, thank you very much for your interest in this conference.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;{CONF_SHORT} Administration&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Abstract_Submission" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {USER_TITLE}. {USER_NAME},&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Thank you for submitting your abstract entitled "{PAPER_TITLE}". Your reference number for this submission is &lt;strong&gt;{PAPER_ID}&lt;/strong&gt;. The abstract will be reviewed and result will be notified soonest possible.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;As a reminder, the {CONF_NAME} will be held on {CONF_TIME} at {CONF_VENUE}.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Please remember to quote the conference name and reference number in any form of communications with us.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;{CONF_SHORT} Administration&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Camera_Ready_Paper" xml:space="preserve">
+    <value>&lt;p&gt;Dear {USER_TITLE}. {USER_NAME},&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Congratulations. Your paper ({PAPER_ID}) entitled "{PAPER_TITLE}" has been accepted for presentation at the conference. As a confirmation, we hereby attached the final camera ready paper that you have submitted. The paper will be copy-edited for the official proceedings.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We would like to remind you that the &lt;strong&gt;Conference Fee shall be paid 6 weeks before the conference date&lt;/strong&gt;. Failing to do so will result in ineligibility to have your manuscript published in the proceeding. The {CONF_NAME} will be held on {CONF_TIME} at {CONF_VENUE}.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Thank you for your cooperation and attention.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We look forward to seeing you at the conference.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;{CONF_SHORT} Administration&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Finish_Review" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {RVWR_TITLE}. {RVWR_NAME},&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We have succesfully received your review of paper {PAPER_ID} entitled "{PAPER_TITLE}". We thank you very much for your consideration and count on your assistance in making this {CONF_SHORT} a success.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;{CONF_SHORT} Administration&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Full_Paper_Submission" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {USER_TITLE}. {USER_NAME},&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Your Extended Abstract Submission for {PAPER_ID} is received. It will be sent to our appointed reviewers for comments.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;As a confirmation of your submission, we hereby attached the full document file that you have submitted. The paper will be copy-edited for the official proceeding.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;As a reminder, the {CONF_NAME} will be held on {CONF_TIME} at {CONF_VENUE}.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Thank you for your submission. We are looking forward to seeing you at the conference.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Chairman of,&lt;/p&gt;
+&lt;p&gt;{CONF_NAME} - {CONF_SHORT}&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Paper_Acceptance" xml:space="preserve">
+    <value>Dear {USER_TITLE}. {USER_NAME},
+
+
+
+Congratulations. Your submission ({PAPER_ID}) entitled "{PAPER_TITLE}" has beenACCEPTED for presentation at the conference.
+
+
+
+You are therefore requested to submit "Camera-ready paper" before {CR_PAPER_DATE}.When submitting the camera-ready paper, make sure you follow STRICTLY the format of our conference proceedings.
+
+
+
+The reviewer's comments below, if any, are provided to assist you in preparing your camera-ready paper. You may submit your Camera Ready paper here: Submit Camera Ready Now.
+
+
+
+We would like to remind you that the Conference Fee shall be paid soonest possible. Failing to do so will result in ineligibility to have your paper published in the proceeding. The {CONF_NAME} will be held on {CONF_TIME} at {CONF_VENUE}.
+
+
+Thank you for your cooperation and attention.
+
+
+
+We are looking forward to seeing you at the conference.
+
+
+
+Best Regards,
+
+
+
+{CONF_SHORT} Administration
+Tel: {CONF_TELP}
+Fax: {CONF_FAX}
+Email: {CONF_EMAIL}
+Website: {CONF_WEBSITE}
+
+Reviewer's Comment:
+
+{RVWR_COMMENT}</value>
+  </data>
+  <data name="Paper_For_Review" xml:space="preserve">
+    <value>&lt;p&gt;&lt;strong&gt;{CONF_NAME}&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {RVWR_TITLE}. {RVWR_NAME},&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;This is concerning {CONF_SHORT} technical review. You have been assigned to review the selected extended abstract:&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Manuscript ID: {PAPER_ID}&lt;br /&gt;Title: {PAPER_TITLE}&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;For your information, we are scheduled to notify the authors about the acceptance/rejection of their papers on {PAPER_NOTIF_DATE}. Therefore, we would appreciate it very much if you could expedite the reviewing process.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Please refer to the link below to review the paper:&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://submit.confbay.com/%7BRVW_LINK%7D"&gt;{RVW_LINK}&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(Please note that Mozilla Firefox browser is the most compatible platform to use the ConfBay System. Kindly check your spam folder regularly for &lt;/em&gt;{CONF_SHORT}&lt;em&gt; notifications)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We thank you very much for your consideration and count on your assistance in making this {CONF_SHORT} a success.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;{CONF_SHORT} Administration&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;Tips for Reviewer&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Conference Chair will send you an email if there is a paper to review.&lt;/li&gt;
+&lt;li&gt;Click on the link as in the email send to you.&lt;/li&gt;
+&lt;li&gt;Paper Review System displays with instructions. Click on &amp;ldquo;continue&amp;rdquo; to proceed for review&lt;/li&gt;
+&lt;li&gt;Paper Review System displays the list of paper to be reviewed. You might have to review more than a manuscript. Choose the right manuscript to review.&lt;/li&gt;
+&lt;li&gt;Click on &amp;ldquo;View Manuscript&amp;rdquo; to view the manuscript. And, Click on &amp;ldquo;Review Now&amp;rdquo; to view the Review Form and the criteria to evaluate the manuscript.&lt;/li&gt;
+&lt;li&gt;Once you are ready to fill in the Review Form, click on &amp;ldquo;Review Now&amp;rdquo;. Fill in the Review Form. Click on &amp;ldquo;Submit&amp;rdquo; and follow the instruction. Note: Once you have submitted the form, the report is final and cannot be edited.&lt;/li&gt;
+&lt;li&gt;If you wish to &amp;ldquo;Decline to Review&amp;rdquo; kindly reply the email &amp;ldquo;Paper for Review&amp;rdquo; with reasons so that action will be taken based on your comment/reasons.&lt;/li&gt;
+&lt;/ol&gt;</value>
+  </data>
+  <data name="Paper_Rejection" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {USER_TITLE}. {USER_NAME},&lt;/p&gt;
+&lt;p&gt;On behalf on the {CONF_SHORT} Committee, we regret to inform you that your submitted extended abstract ({PAPER_ID}) entitled "{PAPER_TITLE}", has been declined for the conference as its review point did not fulfill the requirements.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We appreciate your effort and thank you for giving us the opportunity to consider your work. We hope you plan to attend the {CONF_NAME}, and that you will consider submitting your work to future the {CONF_NAME}.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Again, thank you very much for your submission.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;{CONF_SHORT} Administration&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Participant_Confirmation" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {USER_TITLE}. {USER_GIVENNAME} {USER_SURNAME},&lt;br /&gt;&lt;br /&gt;We are pleased to inform you that your registration as {REGAS} for {CONF_NAME} ({CONF_SHORT}) has been CONFIRMED.&lt;/p&gt;
+&lt;p&gt;We look forward to seeing you and thank you for your support to {CONF_NAME}&lt;/p&gt;
+&lt;p&gt;Thank you. &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;Yours sincerely,&lt;br /&gt;{CONF_NAME} ({CONF_SHORT})&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: {CONF_EMAIL}&lt;/p&gt;</value>
+  </data>
+  <data name="Participant_Registration" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {USER_TITLE}. {USER_GIVENNAME} {USER_SURNAME},&lt;/p&gt;
+&lt;p&gt;Welcome to the {CONF_NAME} ({CONF_SHORT}) and thank you for your registration. Confirmation of this registration will only be made after full payment of registration fees.&lt;/p&gt;
+&lt;p&gt;Please remember to quote your registered name in the system in any form of communications with us.&lt;br /&gt;&lt;br /&gt;Thank you. &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;Yours sincerely,&lt;br /&gt;{CONF_NAME} ({CONF_SHORT})&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: {CONF_EMAIL}&lt;/p&gt;</value>
+  </data>
+  <data name="Presenter_Registration" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {USER_TITLE}. {USER_NAME},&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We would like to thank you for your registration and welcome you to the&amp;nbsp; {CONF_NAME} ({CONF_SHORT}). The {CONF_NAME} will be held on {CONF_TIME} at {CONF_VENUE}.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;You are invited to submit your extended abstract for this conference, at the latest on {FULL_PAPER_DATE}.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Register / Login and &lt;a href="http://submit.confbay.com/%7BABSTRACT_SUBMIT_LINK%7D"&gt;Submit your Abstract Now.&lt;br /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Please note that, Mozilla Firefox browser is the most compatible platform for the ConfBay System. Kindly also check your spam folder regularly for {CONF_SHORT} notifications.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Chairman of,&lt;/p&gt;
+&lt;p&gt;{CONF_NAME} - {CONF_SHORT}&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Reviewer_Invitation" xml:space="preserve">
+    <value>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;INVITATION TO BECOME TECHNICAL REVIEWER FOR&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;{CONF_NAME}&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Dear {RVWR_TITLE}. {RVWR_NAME},&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;On behalf of the {CONF_NAME} - {CONF_SHORT} Technical Committee member, we would like to invite you to become one of the technical reviewers for this conference. Your commitment would be very much appreciated to ensure the highest standards in the quality of paper presented.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Your participation as a reviewer in this event would add great value for your organization and our attendees.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We will email you if there is a paper to be reviewed.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Your help with the reviewing process would be very much appreciated. For details of the conference please visit our website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Yours sincerely,&lt;/p&gt;
+&lt;p&gt;Chairman of,&lt;/p&gt;
+&lt;p&gt;{CONF_NAME} - {CONF_SHORT}&lt;br /&gt;Tel: {CONF_TELP}&lt;br /&gt;Fax: {CONF_FAX}&lt;br /&gt;Email: &lt;a href="mailto:%7BCONF_EMAIL%7D"&gt;{CONF_EMAIL}&lt;/a&gt;&lt;br /&gt;Website: &lt;a href="http://submit.confbay.com/%7BCONF_WEBSITE%7D"&gt;{CONF_WEBSITE}&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="User_Invitation" xml:space="preserve">
+    <value>&lt;p&gt;&lt;/p&gt;</value>
+  </data>
+</root>

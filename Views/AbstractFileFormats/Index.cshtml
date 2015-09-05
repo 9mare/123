@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.AbstractFileFormat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AttendeeLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Alignment.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conference.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FontName.FontNameId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FontSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Margin_Top)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Margin_Bottom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Margin_Left)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Margin_Right)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LineSpacing)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alignment.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conference.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FontName.FontNameId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FontSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Margin_Top)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Margin_Bottom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Margin_Left)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Margin_Right)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineSpacing)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AbstractFileFormatId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AbstractFileFormatId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AbstractFileFormatId })
+        </td>
+    </tr>
+}
+
+</table>

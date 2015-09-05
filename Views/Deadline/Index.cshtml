@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.DateDealine>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.conference.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abstract_Deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbstractAcceptance_Notif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullPaper_Deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaperAcceptance_Notif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CameraReadyPaper_Deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EarlyBird_Deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParticipantRegistration_Deadline)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.conference.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Abstract_Deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbstractAcceptance_Notif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullPaper_Deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaperAcceptance_Notif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CameraReadyPaper_Deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EarlyBird_Deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParticipantRegistration_Deadline)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DateDealineId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DateDealineId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DateDealineId })
+        </td>
+    </tr>
+}
+
+</table>

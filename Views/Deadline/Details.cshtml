@@ -1,0 +1,76 @@
+﻿@model ConferenceManagementSystem.Models.DateDealine
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DateDealine</h4>
+	<hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Abstract_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abstract_Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AbstractAcceptance_Notif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AbstractAcceptance_Notif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullPaper_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullPaper_Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaperAcceptance_Notif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaperAcceptance_Notif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CameraReadyPaper_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CameraReadyPaper_Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlyBird_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EarlyBird_Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParticipantRegistration_Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParticipantRegistration_Deadline)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DateDealineId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

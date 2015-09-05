@@ -1,0 +1,2000 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ConferenceDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AbstractFileFormat">
+          <Key>
+            <PropertyRef Name="AbstractFileFormatId" />
+          </Key>
+          <Property Name="AbstractFileFormatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LineSpacing" Type="float" Nullable="false" />
+          <Property Name="FontNameId" Type="int" Nullable="false" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+          <Property Name="AlignmentId" Type="int" Nullable="false" />
+          <Property Name="FontSize" Type="real" Nullable="false" />
+          <Property Name="Margin_Top" Type="float" Nullable="false" />
+          <Property Name="Margin_Bottom" Type="float" Nullable="false" />
+          <Property Name="Margin_Left" Type="float" Nullable="false" />
+          <Property Name="Margin_Right" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="encryptedPassword" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="LoggedIn" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Alignment">
+          <Key>
+            <PropertyRef Name="AlignmentId" />
+          </Key>
+          <Property Name="AlignmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Attendee">
+          <Key>
+            <PropertyRef Name="AttendeeId" />
+          </Key>
+          <Property Name="AttendeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+          <Property Name="FeeId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserTypeId" Type="int" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="PaymentStatusId" Type="int" Nullable="false" />
+          <Property Name="PaymentAmount" Type="int" Nullable="false" />
+          <Property Name="PaymentDetail" Type="nvarchar(max)" />
+          <Property Name="ReceiptNumber" Type="nvarchar(max)" />
+          <Property Name="Delete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Conference">
+          <Key>
+            <PropertyRef Name="ConferenceId" />
+          </Key>
+          <Property Name="ConferenceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="encryptedPassword" Type="nvarchar(max)" />
+          <Property Name="Website" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Contact" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PaperPrefix" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoggedIn" Type="bit" Nullable="false" />
+          <Property Name="Logo" Type="varbinary(max)" />
+          <Property Name="Short_Name" Type="nvarchar(max)" />
+          <Property Name="ChairmanName" Type="nvarchar(max)" />
+          <Property Name="ChairmanEmail" Type="nvarchar(max)" />
+          <Property Name="ConferencePhone" Type="nvarchar(max)" />
+          <Property Name="SecretariatAddress" Type="nvarchar(max)" />
+          <Property Name="ConferenceTime" Type="nvarchar(max)" />
+          <Property Name="ConferenceVenue" Type="nvarchar(max)" />
+          <Property Name="Delete" Type="bit" Nullable="false" />
+          <Property Name="ConferenceName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Fax" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="ContentId" />
+          </Key>
+          <Property Name="ContentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewInfo" Type="nvarchar(max)" />
+          <Property Name="WelcomeTitle" Type="nvarchar(max)" />
+          <Property Name="WelcomeText" Type="nvarchar(max)" />
+          <Property Name="Organizer" Type="nvarchar(max)" />
+          <Property Name="Accomodation" Type="nvarchar(max)" />
+          <Property Name="Committee" Type="nvarchar(max)" />
+          <Property Name="CallForPapers" Type="nvarchar(max)" />
+          <Property Name="Programmes" Type="nvarchar(max)" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DateDealine">
+          <Key>
+            <PropertyRef Name="DateDealineId" />
+          </Key>
+          <Property Name="DateDealineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Abstract_Deadline" Type="datetime" Nullable="false" />
+          <Property Name="AbstractAcceptance_Notif" Type="datetime" Nullable="false" />
+          <Property Name="FullPaper_Deadline" Type="datetime" Nullable="false" />
+          <Property Name="PaperAcceptance_Notif" Type="datetime" Nullable="false" />
+          <Property Name="CameraReadyPaper_Deadline" Type="datetime" Nullable="false" />
+          <Property Name="EarlyBird_Deadline" Type="datetime" Nullable="false" />
+          <Property Name="ParticipantRegistration_Deadline" Type="datetime" Nullable="false" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailTag">
+          <Key>
+            <PropertyRef Name="EmailTagsId" />
+          </Key>
+          <Property Name="EmailTagsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tags" Type="nvarchar(max)" />
+          <Property Name="Representation" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Fee">
+          <Key>
+            <PropertyRef Name="FeeId" />
+          </Key>
+          <Property Name="FeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Currency" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EarlyBird" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Normal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+          <Property Name="DisplayForNormal" Type="nvarchar(max)" />
+          <Property Name="DisplayForEarlyBird" Type="nvarchar(max)" />
+          <Property Name="Delete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FontName">
+          <Key>
+            <PropertyRef Name="FontNameId" />
+          </Key>
+          <Property Name="FontNameId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InvitationEmailStatus">
+          <Key>
+            <PropertyRef Name="InvitationEmailStatusId" />
+          </Key>
+          <Property Name="InvitationEmailStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InvitationStatus">
+          <Key>
+            <PropertyRef Name="InvitationStatusId" />
+          </Key>
+          <Property Name="InvitationStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NotificationEmail">
+          <Key>
+            <PropertyRef Name="EmailId" />
+          </Key>
+          <Property Name="EmailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PresenterRegistration" Type="nvarchar(max)" />
+          <Property Name="ParticipantRegistration" Type="nvarchar(max)" />
+          <Property Name="ParticipantConfirmation" Type="nvarchar(max)" />
+          <Property Name="AbstractSubmission" Type="nvarchar(max)" />
+          <Property Name="AbstractAcceptance" Type="nvarchar(max)" />
+          <Property Name="AbstractRejection" Type="nvarchar(max)" />
+          <Property Name="FullPaperSubmission" Type="nvarchar(max)" />
+          <Property Name="PaperAcceptance" Type="nvarchar(max)" />
+          <Property Name="PaperRejection" Type="nvarchar(max)" />
+          <Property Name="CameraReadyPaper" Type="nvarchar(max)" />
+          <Property Name="ReviewerInvitation" Type="nvarchar(max)" />
+          <Property Name="PaperForReviewing" Type="nvarchar(max)" />
+          <Property Name="FinishReview" Type="nvarchar(max)" />
+          <Property Name="UserInvitation" Type="nvarchar(max)" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paper">
+          <Key>
+            <PropertyRef Name="PaperId" />
+          </Key>
+          <Property Name="PaperId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PaperTitle" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AuthorList" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Affiliation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Presenter" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Abstract" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PaperDescription" Type="nvarchar(max)" />
+          <Property Name="AbstractFile" Type="nvarchar(max)" />
+          <Property Name="Keywords" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TopicId" Type="int" Nullable="false" />
+          <Property Name="AbstractSubmissionDate" Type="nvarchar(max)" />
+          <Property Name="AbstractSubmissionNotification" Type="int" Nullable="false" />
+          <Property Name="Prefix" Type="nvarchar(max)" />
+          <Property Name="FullPaperFile" Type="nvarchar(max)" />
+          <Property Name="CameraReadyPaperFile" Type="nvarchar(max)" />
+          <Property Name="FullPaperSubmissionDate" Type="nvarchar(max)" />
+          <Property Name="CameraReadyPaperSubmissionDate" Type="nvarchar(max)" />
+          <Property Name="AbstractPaperStatus" Type="int" Nullable="false" />
+          <Property Name="FullPaperStatus" Type="int" Nullable="false" />
+          <Property Name="AbstractTotalNumberOfPages" Type="int" Nullable="false" />
+          <Property Name="FullPaperTotalNumberOfPages" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentStatus">
+          <Key>
+            <PropertyRef Name="PaymentStatusId" />
+          </Key>
+          <Property Name="PaymentStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Reviewer">
+          <Key>
+            <PropertyRef Name="ReviewerId" />
+          </Key>
+          <Property Name="ReviewerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleId" Type="int" Nullable="false" />
+          <Property Name="ReviewerTypeId" Type="int" Nullable="false" />
+          <Property Name="ReviewerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Area" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Instituition" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="InvitationStatusId" Type="int" Nullable="false" />
+          <Property Name="InvitationEmailStatusId" Type="int" Nullable="false" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+          <Property Name="Delete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReviewerType">
+          <Key>
+            <PropertyRef Name="ReviewerTypeId" />
+          </Key>
+          <Property Name="ReviewerTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ReviewItem">
+          <Key>
+            <PropertyRef Name="ReviewItemId" />
+          </Key>
+          <Property Name="ReviewItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+          <Property Name="OverallComments" Type="nvarchar(max)" />
+          <Property Name="AbstractSufficientlyInformative" Type="int" Nullable="false" />
+          <Property Name="ClarityInThePresentationOfFindings" Type="int" Nullable="false" />
+          <Property Name="MethodologyAppropriateToStudy" Type="int" Nullable="false" />
+          <Property Name="ConclusionSupportedByDataAnalysis" Type="int" Nullable="false" />
+          <Property Name="NoveltyOfFinding" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Venue" Type="nvarchar(max)" />
+          <Property Name="TopicId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="TitleId" />
+          </Key>
+          <Property Name="TitleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="TopicId" />
+          </Key>
+          <Property Name="TopicId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ConferenceId" Type="int" Nullable="false" />
+          <Property Name="Delete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="encryptedPassword" Type="nvarchar(max)" />
+          <Property Name="TitleId" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="Instituition" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Faculty" Type="nvarchar(max)" />
+          <Property Name="Department" Type="nvarchar(max)" />
+          <Property Name="ResearchField" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PostalCode" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="FaxNumber" Type="nvarchar(max)" />
+          <Property Name="LoggedIn" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_AbstractFileFormat_dbo_Alignment_AlignmentId">
+          <End Role="Alignment" Type="Self.Alignment" Multiplicity="1" />
+          <End Role="AbstractFileFormat" Type="Self.AbstractFileFormat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alignment">
+              <PropertyRef Name="AlignmentId" />
+            </Principal>
+            <Dependent Role="AbstractFileFormat">
+              <PropertyRef Name="AlignmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AbstractFileFormat_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="AbstractFileFormat" Type="Self.AbstractFileFormat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="AbstractFileFormat">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AbstractFileFormat_dbo_FontName_FontName_FontNameId">
+          <End Role="FontName" Type="Self.FontName" Multiplicity="1" />
+          <End Role="AbstractFileFormat" Type="Self.AbstractFileFormat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FontName">
+              <PropertyRef Name="FontNameId" />
+            </Principal>
+            <Dependent Role="AbstractFileFormat">
+              <PropertyRef Name="FontNameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_Fee_FeeId">
+          <End Role="Fee" Type="Self.Fee" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fee">
+              <PropertyRef Name="FeeId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="FeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_PaymentStatus_PaymentStatusId">
+          <End Role="PaymentStatus" Type="Self.PaymentStatus" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentStatus">
+              <PropertyRef Name="PaymentStatusId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="PaymentStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_UserType_UserTypeId">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Content_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Content" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DateDealine_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="DateDealine" Type="Self.DateDealine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="DateDealine">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Fee_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Fee">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_NotificationEmail_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="NotificationEmail" Type="Self.NotificationEmail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="NotificationEmail">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Paper_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Paper" Type="Self.Paper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Paper">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Paper_dbo_Topic_TopicId">
+          <End Role="Topic" Type="Self.Topic" Multiplicity="1" />
+          <End Role="Paper" Type="Self.Paper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicId" />
+            </Principal>
+            <Dependent Role="Paper">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Paper_dbo_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Paper" Type="Self.Paper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Paper">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_InvitationEmailStatus_InvitationEmailStatus_InvitationEmailStatusId">
+          <End Role="InvitationEmailStatus" Type="Self.InvitationEmailStatus" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvitationEmailStatus">
+              <PropertyRef Name="InvitationEmailStatusId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="InvitationEmailStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_InvitationStatus_InvitationStatusId">
+          <End Role="InvitationStatus" Type="Self.InvitationStatus" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvitationStatus">
+              <PropertyRef Name="InvitationStatusId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="InvitationStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_ReviewerType_ReviewerTypeId">
+          <End Role="ReviewerType" Type="Self.ReviewerType" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReviewerType">
+              <PropertyRef Name="ReviewerTypeId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="ReviewerTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_Title_TitleId">
+          <End Role="Title" Type="Self.Title" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Title">
+              <PropertyRef Name="TitleId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="TitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReviewItem_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="ReviewItem" Type="Self.ReviewItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="ReviewItem">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Schedule_dbo_Topic_TopicId">
+          <End Role="Topic" Type="Self.Topic" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Topic_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_User_dbo_Country_CountryId">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_User_dbo_Gender_GenderId">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_User_dbo_Title_TitleId">
+          <End Role="Title" Type="Self.Title" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Title">
+              <PropertyRef Name="TitleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="TitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConferenceDBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AbstractFileFormat" EntityType="Self.AbstractFileFormat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Alignment" EntityType="Self.Alignment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attendee" EntityType="Self.Attendee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Conference" EntityType="Self.Conference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DateDealine" EntityType="Self.DateDealine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailTag" EntityType="Self.EmailTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fee" EntityType="Self.Fee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FontName" EntityType="Self.FontName" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvitationEmailStatus" EntityType="Self.InvitationEmailStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvitationStatus" EntityType="Self.InvitationStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NotificationEmail" EntityType="Self.NotificationEmail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paper" EntityType="Self.Paper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentStatus" EntityType="Self.PaymentStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reviewer" EntityType="Self.Reviewer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReviewerType" EntityType="Self.ReviewerType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReviewItem" EntityType="Self.ReviewItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Title" EntityType="Self.Title" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AbstractFileFormat_dbo_Alignment_AlignmentId" Association="Self.FK_dbo_AbstractFileFormat_dbo_Alignment_AlignmentId">
+            <End Role="Alignment" EntitySet="Alignment" />
+            <End Role="AbstractFileFormat" EntitySet="AbstractFileFormat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AbstractFileFormat_dbo_Conference_ConferenceId" Association="Self.FK_dbo_AbstractFileFormat_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="AbstractFileFormat" EntitySet="AbstractFileFormat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AbstractFileFormat_dbo_FontName_FontName_FontNameId" Association="Self.FK_dbo_AbstractFileFormat_dbo_FontName_FontName_FontNameId">
+            <End Role="FontName" EntitySet="FontName" />
+            <End Role="AbstractFileFormat" EntitySet="AbstractFileFormat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Attendee_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="Attendee" EntitySet="Attendee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_Fee_FeeId" Association="Self.FK_dbo_Attendee_dbo_Fee_FeeId">
+            <End Role="Fee" EntitySet="Fee" />
+            <End Role="Attendee" EntitySet="Attendee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_PaymentStatus_PaymentStatusId" Association="Self.FK_dbo_Attendee_dbo_PaymentStatus_PaymentStatusId">
+            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
+            <End Role="Attendee" EntitySet="Attendee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_User_UserId" Association="Self.FK_dbo_Attendee_dbo_User_UserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Attendee" EntitySet="Attendee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_UserType_UserTypeId" Association="Self.FK_dbo_Attendee_dbo_UserType_UserTypeId">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Attendee" EntitySet="Attendee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Content_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Content_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="Content" EntitySet="Content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DateDealine_dbo_Conference_ConferenceId" Association="Self.FK_dbo_DateDealine_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="DateDealine" EntitySet="DateDealine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Fee_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Fee_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="Fee" EntitySet="Fee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_NotificationEmail_dbo_Conference_ConferenceId" Association="Self.FK_dbo_NotificationEmail_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="NotificationEmail" EntitySet="NotificationEmail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Paper_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Paper_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="Paper" EntitySet="Paper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Paper_dbo_Topic_TopicId" Association="Self.FK_dbo_Paper_dbo_Topic_TopicId">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="Paper" EntitySet="Paper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Paper_dbo_User_UserId" Association="Self.FK_dbo_Paper_dbo_User_UserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Paper" EntitySet="Paper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Reviewer_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="Reviewer" EntitySet="Reviewer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_InvitationEmailStatus_InvitationEmailStatus_InvitationEmailStatusId" Association="Self.FK_dbo_Reviewer_dbo_InvitationEmailStatus_InvitationEmailStatus_InvitationEmailStatusId">
+            <End Role="InvitationEmailStatus" EntitySet="InvitationEmailStatus" />
+            <End Role="Reviewer" EntitySet="Reviewer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_InvitationStatus_InvitationStatusId" Association="Self.FK_dbo_Reviewer_dbo_InvitationStatus_InvitationStatusId">
+            <End Role="InvitationStatus" EntitySet="InvitationStatus" />
+            <End Role="Reviewer" EntitySet="Reviewer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_ReviewerType_ReviewerTypeId" Association="Self.FK_dbo_Reviewer_dbo_ReviewerType_ReviewerTypeId">
+            <End Role="ReviewerType" EntitySet="ReviewerType" />
+            <End Role="Reviewer" EntitySet="Reviewer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_Title_TitleId" Association="Self.FK_dbo_Reviewer_dbo_Title_TitleId">
+            <End Role="Title" EntitySet="Title" />
+            <End Role="Reviewer" EntitySet="Reviewer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReviewItem_dbo_Conference_ConferenceId" Association="Self.FK_dbo_ReviewItem_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="ReviewItem" EntitySet="ReviewItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Schedule_dbo_Topic_TopicId" Association="Self.FK_dbo_Schedule_dbo_Topic_TopicId">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Topic_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Topic_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conference" />
+            <End Role="Topic" EntitySet="Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_User_dbo_Country_CountryId" Association="Self.FK_dbo_User_dbo_Country_CountryId">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_User_dbo_Gender_GenderId" Association="Self.FK_dbo_User_dbo_Gender_GenderId">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_User_dbo_Title_TitleId" Association="Self.FK_dbo_User_dbo_Title_TitleId">
+            <End Role="Title" EntitySet="Title" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConferenceDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AbstractFileFormat">
+          <Key>
+            <PropertyRef Name="AbstractFileFormatId" />
+          </Key>
+          <Property Name="AbstractFileFormatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LineSpacing" Type="Double" Nullable="false" />
+          <Property Name="FontNameId" Type="Int32" Nullable="false" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <Property Name="AlignmentId" Type="Int32" Nullable="false" />
+          <Property Name="FontSize" Type="Single" Nullable="false" />
+          <Property Name="Margin_Top" Type="Double" Nullable="false" />
+          <Property Name="Margin_Bottom" Type="Double" Nullable="false" />
+          <Property Name="Margin_Left" Type="Double" Nullable="false" />
+          <Property Name="Margin_Right" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Alignment" Relationship="Self.FK_dbo_AbstractFileFormat_dbo_Alignment_AlignmentId" FromRole="AbstractFileFormat" ToRole="Alignment" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_AbstractFileFormat_dbo_Conference_ConferenceId" FromRole="AbstractFileFormat" ToRole="Conference" />
+          <NavigationProperty Name="FontName" Relationship="Self.FK_dbo_AbstractFileFormat_dbo_FontName_FontName_FontNameId" FromRole="AbstractFileFormat" ToRole="FontName" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="encryptedPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoggedIn" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Alignment">
+          <Key>
+            <PropertyRef Name="AlignmentId" />
+          </Key>
+          <Property Name="AlignmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AbstractFileFormats" Relationship="Self.FK_dbo_AbstractFileFormat_dbo_Alignment_AlignmentId" FromRole="Alignment" ToRole="AbstractFileFormat" />
+        </EntityType>
+        <EntityType Name="Attendee">
+          <Key>
+            <PropertyRef Name="AttendeeId" />
+          </Key>
+          <Property Name="AttendeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <Property Name="FeeId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PaymentStatusId" Type="Int32" Nullable="false" />
+          <Property Name="PaymentAmount" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiptNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Delete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_Attendee_dbo_Conference_ConferenceId" FromRole="Attendee" ToRole="Conference" />
+          <NavigationProperty Name="Fee" Relationship="Self.FK_dbo_Attendee_dbo_Fee_FeeId" FromRole="Attendee" ToRole="Fee" />
+          <NavigationProperty Name="PaymentStatu" Relationship="Self.FK_dbo_Attendee_dbo_PaymentStatus_PaymentStatusId" FromRole="Attendee" ToRole="PaymentStatus" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_Attendee_dbo_User_UserId" FromRole="Attendee" ToRole="User" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK_dbo_Attendee_dbo_UserType_UserTypeId" FromRole="Attendee" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="Conference">
+          <Key>
+            <PropertyRef Name="ConferenceId" />
+          </Key>
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="encryptedPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContactName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaperPrefix" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoggedIn" Type="Boolean" Nullable="false" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Short_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChairmanName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChairmanEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConferencePhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecretariatAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConferenceTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConferenceVenue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Delete" Type="Boolean" Nullable="false" />
+          <Property Name="ConferenceName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AbstractFileFormats" Relationship="Self.FK_dbo_AbstractFileFormat_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="AbstractFileFormat" />
+          <NavigationProperty Name="Attendees" Relationship="Self.FK_dbo_Attendee_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="Attendee" />
+          <NavigationProperty Name="Contents" Relationship="Self.FK_dbo_Content_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="Content" />
+          <NavigationProperty Name="DateDealines" Relationship="Self.FK_dbo_DateDealine_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="DateDealine" />
+          <NavigationProperty Name="Fees" Relationship="Self.FK_dbo_Fee_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="Fee" />
+          <NavigationProperty Name="NotificationEmails" Relationship="Self.FK_dbo_NotificationEmail_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="NotificationEmail" />
+          <NavigationProperty Name="Papers" Relationship="Self.FK_dbo_Paper_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="Paper" />
+          <NavigationProperty Name="Reviewers" Relationship="Self.FK_dbo_Reviewer_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="Reviewer" />
+          <NavigationProperty Name="ReviewItems" Relationship="Self.FK_dbo_ReviewItem_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="ReviewItem" />
+          <NavigationProperty Name="Topics" Relationship="Self.FK_dbo_Topic_dbo_Conference_ConferenceId" FromRole="Conference" ToRole="Topic" />
+        </EntityType>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="ContentId" />
+          </Key>
+          <Property Name="ContentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WelcomeTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WelcomeText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Organizer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Accomodation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Committee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CallForPapers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Programmes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_Content_dbo_Conference_ConferenceId" FromRole="Content" ToRole="Conference" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_User_dbo_Country_CountryId" FromRole="Country" ToRole="User" />
+        </EntityType>
+        <EntityType Name="DateDealine">
+          <Key>
+            <PropertyRef Name="DateDealineId" />
+          </Key>
+          <Property Name="DateDealineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Abstract_Deadline" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AbstractAcceptance_Notif" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FullPaper_Deadline" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PaperAcceptance_Notif" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CameraReadyPaper_Deadline" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EarlyBird_Deadline" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ParticipantRegistration_Deadline" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_DateDealine_dbo_Conference_ConferenceId" FromRole="DateDealine" ToRole="Conference" />
+        </EntityType>
+        <EntityType Name="EmailTag">
+          <Key>
+            <PropertyRef Name="EmailTagsId" />
+          </Key>
+          <Property Name="EmailTagsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Representation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Fee">
+          <Key>
+            <PropertyRef Name="FeeId" />
+          </Key>
+          <Property Name="FeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EarlyBird" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Normal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <Property Name="DisplayForNormal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayForEarlyBird" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Delete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Attendees" Relationship="Self.FK_dbo_Attendee_dbo_Fee_FeeId" FromRole="Fee" ToRole="Attendee" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_Fee_dbo_Conference_ConferenceId" FromRole="Fee" ToRole="Conference" />
+        </EntityType>
+        <EntityType Name="FontName">
+          <Key>
+            <PropertyRef Name="FontNameId" />
+          </Key>
+          <Property Name="FontNameId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AbstractFileFormats" Relationship="Self.FK_dbo_AbstractFileFormat_dbo_FontName_FontName_FontNameId" FromRole="FontName" ToRole="AbstractFileFormat" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_User_dbo_Gender_GenderId" FromRole="Gender" ToRole="User" />
+        </EntityType>
+        <EntityType Name="InvitationEmailStatu">
+          <Key>
+            <PropertyRef Name="InvitationEmailStatusId" />
+          </Key>
+          <Property Name="InvitationEmailStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reviewers" Relationship="Self.FK_dbo_Reviewer_dbo_InvitationEmailStatus_InvitationEmailStatus_InvitationEmailStatusId" FromRole="InvitationEmailStatus" ToRole="Reviewer" />
+        </EntityType>
+        <EntityType Name="InvitationStatu">
+          <Key>
+            <PropertyRef Name="InvitationStatusId" />
+          </Key>
+          <Property Name="InvitationStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reviewers" Relationship="Self.FK_dbo_Reviewer_dbo_InvitationStatus_InvitationStatusId" FromRole="InvitationStatus" ToRole="Reviewer" />
+        </EntityType>
+        <EntityType Name="NotificationEmail">
+          <Key>
+            <PropertyRef Name="EmailId" />
+          </Key>
+          <Property Name="EmailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PresenterRegistration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParticipantRegistration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParticipantConfirmation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbstractSubmission" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbstractAcceptance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbstractRejection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullPaperSubmission" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaperAcceptance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaperRejection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CameraReadyPaper" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewerInvitation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaperForReviewing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FinishReview" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserInvitation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_NotificationEmail_dbo_Conference_ConferenceId" FromRole="NotificationEmail" ToRole="Conference" />
+        </EntityType>
+        <EntityType Name="Paper">
+          <Key>
+            <PropertyRef Name="PaperId" />
+          </Key>
+          <Property Name="PaperId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="PaperTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Affiliation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Presenter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaperDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbstractFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TopicId" Type="Int32" Nullable="false" />
+          <Property Name="AbstractSubmissionDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbstractSubmissionNotification" Type="Int32" Nullable="false" />
+          <Property Name="Prefix" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullPaperFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CameraReadyPaperFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullPaperSubmissionDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CameraReadyPaperSubmissionDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbstractPaperStatus" Type="Int32" Nullable="false" />
+          <Property Name="FullPaperStatus" Type="Int32" Nullable="false" />
+          <Property Name="AbstractTotalNumberOfPages" Type="Int32" Nullable="false" />
+          <Property Name="FullPaperTotalNumberOfPages" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_Paper_dbo_Conference_ConferenceId" FromRole="Paper" ToRole="Conference" />
+          <NavigationProperty Name="Topic" Relationship="Self.FK_dbo_Paper_dbo_Topic_TopicId" FromRole="Paper" ToRole="Topic" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_Paper_dbo_User_UserId" FromRole="Paper" ToRole="User" />
+        </EntityType>
+        <EntityType Name="PaymentStatu">
+          <Key>
+            <PropertyRef Name="PaymentStatusId" />
+          </Key>
+          <Property Name="PaymentStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Attendees" Relationship="Self.FK_dbo_Attendee_dbo_PaymentStatus_PaymentStatusId" FromRole="PaymentStatus" ToRole="Attendee" />
+        </EntityType>
+        <EntityType Name="Reviewer">
+          <Key>
+            <PropertyRef Name="ReviewerId" />
+          </Key>
+          <Property Name="ReviewerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleId" Type="Int32" Nullable="false" />
+          <Property Name="ReviewerTypeId" Type="Int32" Nullable="false" />
+          <Property Name="ReviewerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Instituition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InvitationStatusId" Type="Int32" Nullable="false" />
+          <Property Name="InvitationEmailStatusId" Type="Int32" Nullable="false" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <Property Name="Delete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_Reviewer_dbo_Conference_ConferenceId" FromRole="Reviewer" ToRole="Conference" />
+          <NavigationProperty Name="InvitationEmailStatu" Relationship="Self.FK_dbo_Reviewer_dbo_InvitationEmailStatus_InvitationEmailStatus_InvitationEmailStatusId" FromRole="Reviewer" ToRole="InvitationEmailStatus" />
+          <NavigationProperty Name="InvitationStatu" Relationship="Self.FK_dbo_Reviewer_dbo_InvitationStatus_InvitationStatusId" FromRole="Reviewer" ToRole="InvitationStatus" />
+          <NavigationProperty Name="ReviewerType" Relationship="Self.FK_dbo_Reviewer_dbo_ReviewerType_ReviewerTypeId" FromRole="Reviewer" ToRole="ReviewerType" />
+          <NavigationProperty Name="Title" Relationship="Self.FK_dbo_Reviewer_dbo_Title_TitleId" FromRole="Reviewer" ToRole="Title" />
+        </EntityType>
+        <EntityType Name="ReviewerType">
+          <Key>
+            <PropertyRef Name="ReviewerTypeId" />
+          </Key>
+          <Property Name="ReviewerTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reviewers" Relationship="Self.FK_dbo_Reviewer_dbo_ReviewerType_ReviewerTypeId" FromRole="ReviewerType" ToRole="Reviewer" />
+        </EntityType>
+        <EntityType Name="ReviewItem">
+          <Key>
+            <PropertyRef Name="ReviewItemId" />
+          </Key>
+          <Property Name="ReviewItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <Property Name="OverallComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbstractSufficientlyInformative" Type="Int32" Nullable="false" />
+          <Property Name="ClarityInThePresentationOfFindings" Type="Int32" Nullable="false" />
+          <Property Name="MethodologyAppropriateToStudy" Type="Int32" Nullable="false" />
+          <Property Name="ConclusionSupportedByDataAnalysis" Type="Int32" Nullable="false" />
+          <Property Name="NoveltyOfFinding" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_ReviewItem_dbo_Conference_ConferenceId" FromRole="ReviewItem" ToRole="Conference" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Venue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TopicId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Topic" Relationship="Self.FK_dbo_Schedule_dbo_Topic_TopicId" FromRole="Schedule" ToRole="Topic" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="TitleId" />
+          </Key>
+          <Property Name="TitleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reviewers" Relationship="Self.FK_dbo_Reviewer_dbo_Title_TitleId" FromRole="Title" ToRole="Reviewer" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_User_dbo_Title_TitleId" FromRole="Title" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="TopicId" />
+          </Key>
+          <Property Name="TopicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+          <Property Name="Delete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Conference" Relationship="Self.FK_dbo_Topic_dbo_Conference_ConferenceId" FromRole="Topic" ToRole="Conference" />
+          <NavigationProperty Name="Papers" Relationship="Self.FK_dbo_Paper_dbo_Topic_TopicId" FromRole="Topic" ToRole="Paper" />
+          <NavigationProperty Name="Schedules" Relationship="Self.FK_dbo_Schedule_dbo_Topic_TopicId" FromRole="Topic" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="encryptedPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TitleId" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="Instituition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Faculty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResearchField" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostalCode" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoggedIn" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Attendees" Relationship="Self.FK_dbo_Attendee_dbo_User_UserId" FromRole="User" ToRole="Attendee" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_dbo_User_dbo_Country_CountryId" FromRole="User" ToRole="Country" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_dbo_User_dbo_Gender_GenderId" FromRole="User" ToRole="Gender" />
+          <NavigationProperty Name="Papers" Relationship="Self.FK_dbo_Paper_dbo_User_UserId" FromRole="User" ToRole="Paper" />
+          <NavigationProperty Name="Title" Relationship="Self.FK_dbo_User_dbo_Title_TitleId" FromRole="User" ToRole="Title" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Attendees" Relationship="Self.FK_dbo_Attendee_dbo_UserType_UserTypeId" FromRole="UserType" ToRole="Attendee" />
+        </EntityType>
+        <Association Name="FK_dbo_AbstractFileFormat_dbo_Alignment_AlignmentId">
+          <End Role="Alignment" Type="Self.Alignment" Multiplicity="1" />
+          <End Role="AbstractFileFormat" Type="Self.AbstractFileFormat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alignment">
+              <PropertyRef Name="AlignmentId" />
+            </Principal>
+            <Dependent Role="AbstractFileFormat">
+              <PropertyRef Name="AlignmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AbstractFileFormat_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="AbstractFileFormat" Type="Self.AbstractFileFormat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="AbstractFileFormat">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AbstractFileFormat_dbo_FontName_FontName_FontNameId">
+          <End Role="FontName" Type="Self.FontName" Multiplicity="1" />
+          <End Role="AbstractFileFormat" Type="Self.AbstractFileFormat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FontName">
+              <PropertyRef Name="FontNameId" />
+            </Principal>
+            <Dependent Role="AbstractFileFormat">
+              <PropertyRef Name="FontNameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_Fee_FeeId">
+          <End Role="Fee" Type="Self.Fee" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fee">
+              <PropertyRef Name="FeeId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="FeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_PaymentStatus_PaymentStatusId">
+          <End Role="PaymentStatus" Type="Self.PaymentStatu" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentStatus">
+              <PropertyRef Name="PaymentStatusId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="PaymentStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Attendee_dbo_UserType_UserTypeId">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Content_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Content" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DateDealine_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="DateDealine" Type="Self.DateDealine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="DateDealine">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Fee_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Fee">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_NotificationEmail_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="NotificationEmail" Type="Self.NotificationEmail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="NotificationEmail">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Paper_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Paper" Type="Self.Paper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Paper">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReviewItem_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="ReviewItem" Type="Self.ReviewItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="ReviewItem">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Topic_dbo_Conference_ConferenceId">
+          <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+          <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conference">
+              <PropertyRef Name="ConferenceId" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="ConferenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_User_dbo_Country_CountryId">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_User_dbo_Gender_GenderId">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_InvitationEmailStatus_InvitationEmailStatus_InvitationEmailStatusId">
+          <End Role="InvitationEmailStatus" Type="Self.InvitationEmailStatu" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvitationEmailStatus">
+              <PropertyRef Name="InvitationEmailStatusId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="InvitationEmailStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_InvitationStatus_InvitationStatusId">
+          <End Role="InvitationStatus" Type="Self.InvitationStatu" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvitationStatus">
+              <PropertyRef Name="InvitationStatusId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="InvitationStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Paper_dbo_Topic_TopicId">
+          <End Role="Topic" Type="Self.Topic" Multiplicity="1" />
+          <End Role="Paper" Type="Self.Paper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicId" />
+            </Principal>
+            <Dependent Role="Paper">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Paper_dbo_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Paper" Type="Self.Paper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Paper">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_ReviewerType_ReviewerTypeId">
+          <End Role="ReviewerType" Type="Self.ReviewerType" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReviewerType">
+              <PropertyRef Name="ReviewerTypeId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="ReviewerTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reviewer_dbo_Title_TitleId">
+          <End Role="Title" Type="Self.Title" Multiplicity="1" />
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Title">
+              <PropertyRef Name="TitleId" />
+            </Principal>
+            <Dependent Role="Reviewer">
+              <PropertyRef Name="TitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Schedule_dbo_Topic_TopicId">
+          <End Role="Topic" Type="Self.Topic" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_User_dbo_Title_TitleId">
+          <End Role="Title" Type="Self.Title" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Title">
+              <PropertyRef Name="TitleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="TitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConferenceDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AbstractFileFormats" EntityType="Self.AbstractFileFormat" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Alignments" EntityType="Self.Alignment" />
+          <EntitySet Name="Attendees" EntityType="Self.Attendee" />
+          <EntitySet Name="Conferences" EntityType="Self.Conference" />
+          <EntitySet Name="Contents" EntityType="Self.Content" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="DateDealines" EntityType="Self.DateDealine" />
+          <EntitySet Name="EmailTags" EntityType="Self.EmailTag" />
+          <EntitySet Name="Fees" EntityType="Self.Fee" />
+          <EntitySet Name="FontNames" EntityType="Self.FontName" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="InvitationEmailStatus" EntityType="Self.InvitationEmailStatu" />
+          <EntitySet Name="InvitationStatus" EntityType="Self.InvitationStatu" />
+          <EntitySet Name="NotificationEmails" EntityType="Self.NotificationEmail" />
+          <EntitySet Name="Papers" EntityType="Self.Paper" />
+          <EntitySet Name="PaymentStatus" EntityType="Self.PaymentStatu" />
+          <EntitySet Name="Reviewers" EntityType="Self.Reviewer" />
+          <EntitySet Name="ReviewerTypes" EntityType="Self.ReviewerType" />
+          <EntitySet Name="ReviewItems" EntityType="Self.ReviewItem" />
+          <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Titles" EntityType="Self.Title" />
+          <EntitySet Name="Topics" EntityType="Self.Topic" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <AssociationSet Name="FK_dbo_AbstractFileFormat_dbo_Alignment_AlignmentId" Association="Self.FK_dbo_AbstractFileFormat_dbo_Alignment_AlignmentId">
+            <End Role="Alignment" EntitySet="Alignments" />
+            <End Role="AbstractFileFormat" EntitySet="AbstractFileFormats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AbstractFileFormat_dbo_Conference_ConferenceId" Association="Self.FK_dbo_AbstractFileFormat_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="AbstractFileFormat" EntitySet="AbstractFileFormats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AbstractFileFormat_dbo_FontName_FontName_FontNameId" Association="Self.FK_dbo_AbstractFileFormat_dbo_FontName_FontName_FontNameId">
+            <End Role="FontName" EntitySet="FontNames" />
+            <End Role="AbstractFileFormat" EntitySet="AbstractFileFormats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Attendee_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Attendee" EntitySet="Attendees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_Fee_FeeId" Association="Self.FK_dbo_Attendee_dbo_Fee_FeeId">
+            <End Role="Fee" EntitySet="Fees" />
+            <End Role="Attendee" EntitySet="Attendees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_PaymentStatus_PaymentStatusId" Association="Self.FK_dbo_Attendee_dbo_PaymentStatus_PaymentStatusId">
+            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
+            <End Role="Attendee" EntitySet="Attendees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_User_UserId" Association="Self.FK_dbo_Attendee_dbo_User_UserId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Attendee" EntitySet="Attendees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Attendee_dbo_UserType_UserTypeId" Association="Self.FK_dbo_Attendee_dbo_UserType_UserTypeId">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="Attendee" EntitySet="Attendees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Content_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Content_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Content" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DateDealine_dbo_Conference_ConferenceId" Association="Self.FK_dbo_DateDealine_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="DateDealine" EntitySet="DateDealines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Fee_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Fee_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Fee" EntitySet="Fees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_NotificationEmail_dbo_Conference_ConferenceId" Association="Self.FK_dbo_NotificationEmail_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="NotificationEmail" EntitySet="NotificationEmails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Paper_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Paper_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Paper" EntitySet="Papers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Reviewer_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Reviewer" EntitySet="Reviewers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReviewItem_dbo_Conference_ConferenceId" Association="Self.FK_dbo_ReviewItem_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="ReviewItem" EntitySet="ReviewItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Topic_dbo_Conference_ConferenceId" Association="Self.FK_dbo_Topic_dbo_Conference_ConferenceId">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Topic" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_User_dbo_Country_CountryId" Association="Self.FK_dbo_User_dbo_Country_CountryId">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_User_dbo_Gender_GenderId" Association="Self.FK_dbo_User_dbo_Gender_GenderId">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_InvitationEmailStatus_InvitationEmailStatus_InvitationEmailStatusId" Association="Self.FK_dbo_Reviewer_dbo_InvitationEmailStatus_InvitationEmailStatus_InvitationEmailStatusId">
+            <End Role="InvitationEmailStatus" EntitySet="InvitationEmailStatus" />
+            <End Role="Reviewer" EntitySet="Reviewers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_InvitationStatus_InvitationStatusId" Association="Self.FK_dbo_Reviewer_dbo_InvitationStatus_InvitationStatusId">
+            <End Role="InvitationStatus" EntitySet="InvitationStatus" />
+            <End Role="Reviewer" EntitySet="Reviewers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Paper_dbo_Topic_TopicId" Association="Self.FK_dbo_Paper_dbo_Topic_TopicId">
+            <End Role="Topic" EntitySet="Topics" />
+            <End Role="Paper" EntitySet="Papers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Paper_dbo_User_UserId" Association="Self.FK_dbo_Paper_dbo_User_UserId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Paper" EntitySet="Papers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_ReviewerType_ReviewerTypeId" Association="Self.FK_dbo_Reviewer_dbo_ReviewerType_ReviewerTypeId">
+            <End Role="ReviewerType" EntitySet="ReviewerTypes" />
+            <End Role="Reviewer" EntitySet="Reviewers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reviewer_dbo_Title_TitleId" Association="Self.FK_dbo_Reviewer_dbo_Title_TitleId">
+            <End Role="Title" EntitySet="Titles" />
+            <End Role="Reviewer" EntitySet="Reviewers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Schedule_dbo_Topic_TopicId" Association="Self.FK_dbo_Schedule_dbo_Topic_TopicId">
+            <End Role="Topic" EntitySet="Topics" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_User_dbo_Title_TitleId" Association="Self.FK_dbo_User_dbo_Title_TitleId">
+            <End Role="Title" EntitySet="Titles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConferenceDBModelStoreContainer" CdmEntityContainer="ConferenceDBEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="ConferenceDBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AbstractFileFormats">
+            <EntityTypeMapping TypeName="ConferenceDBModel.AbstractFileFormat">
+              <MappingFragment StoreEntitySet="AbstractFileFormat">
+                <ScalarProperty Name="AbstractFileFormatId" ColumnName="AbstractFileFormatId" />
+                <ScalarProperty Name="LineSpacing" ColumnName="LineSpacing" />
+                <ScalarProperty Name="FontNameId" ColumnName="FontNameId" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+                <ScalarProperty Name="AlignmentId" ColumnName="AlignmentId" />
+                <ScalarProperty Name="FontSize" ColumnName="FontSize" />
+                <ScalarProperty Name="Margin_Top" ColumnName="Margin_Top" />
+                <ScalarProperty Name="Margin_Bottom" ColumnName="Margin_Bottom" />
+                <ScalarProperty Name="Margin_Left" ColumnName="Margin_Left" />
+                <ScalarProperty Name="Margin_Right" ColumnName="Margin_Right" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="encryptedPassword" ColumnName="encryptedPassword" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LoggedIn" ColumnName="LoggedIn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alignments">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Alignment">
+              <MappingFragment StoreEntitySet="Alignment">
+                <ScalarProperty Name="AlignmentId" ColumnName="AlignmentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendees">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Attendee">
+              <MappingFragment StoreEntitySet="Attendee">
+                <ScalarProperty Name="AttendeeId" ColumnName="AttendeeId" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+                <ScalarProperty Name="FeeId" ColumnName="FeeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="PaymentStatusId" ColumnName="PaymentStatusId" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="PaymentDetail" ColumnName="PaymentDetail" />
+                <ScalarProperty Name="ReceiptNumber" ColumnName="ReceiptNumber" />
+                <ScalarProperty Name="Delete" ColumnName="Delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conferences">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Conference">
+              <MappingFragment StoreEntitySet="Conference">
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="encryptedPassword" ColumnName="encryptedPassword" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="PaperPrefix" ColumnName="PaperPrefix" />
+                <ScalarProperty Name="LoggedIn" ColumnName="LoggedIn" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Short_Name" ColumnName="Short_Name" />
+                <ScalarProperty Name="ChairmanName" ColumnName="ChairmanName" />
+                <ScalarProperty Name="ChairmanEmail" ColumnName="ChairmanEmail" />
+                <ScalarProperty Name="ConferencePhone" ColumnName="ConferencePhone" />
+                <ScalarProperty Name="SecretariatAddress" ColumnName="SecretariatAddress" />
+                <ScalarProperty Name="ConferenceTime" ColumnName="ConferenceTime" />
+                <ScalarProperty Name="ConferenceVenue" ColumnName="ConferenceVenue" />
+                <ScalarProperty Name="Delete" ColumnName="Delete" />
+                <ScalarProperty Name="ConferenceName" ColumnName="ConferenceName" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contents">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Content">
+              <MappingFragment StoreEntitySet="Content">
+                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+                <ScalarProperty Name="NewInfo" ColumnName="NewInfo" />
+                <ScalarProperty Name="WelcomeTitle" ColumnName="WelcomeTitle" />
+                <ScalarProperty Name="WelcomeText" ColumnName="WelcomeText" />
+                <ScalarProperty Name="Organizer" ColumnName="Organizer" />
+                <ScalarProperty Name="Accomodation" ColumnName="Accomodation" />
+                <ScalarProperty Name="Committee" ColumnName="Committee" />
+                <ScalarProperty Name="CallForPapers" ColumnName="CallForPapers" />
+                <ScalarProperty Name="Programmes" ColumnName="Programmes" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DateDealines">
+            <EntityTypeMapping TypeName="ConferenceDBModel.DateDealine">
+              <MappingFragment StoreEntitySet="DateDealine">
+                <ScalarProperty Name="DateDealineId" ColumnName="DateDealineId" />
+                <ScalarProperty Name="Abstract_Deadline" ColumnName="Abstract_Deadline" />
+                <ScalarProperty Name="AbstractAcceptance_Notif" ColumnName="AbstractAcceptance_Notif" />
+                <ScalarProperty Name="FullPaper_Deadline" ColumnName="FullPaper_Deadline" />
+                <ScalarProperty Name="PaperAcceptance_Notif" ColumnName="PaperAcceptance_Notif" />
+                <ScalarProperty Name="CameraReadyPaper_Deadline" ColumnName="CameraReadyPaper_Deadline" />
+                <ScalarProperty Name="EarlyBird_Deadline" ColumnName="EarlyBird_Deadline" />
+                <ScalarProperty Name="ParticipantRegistration_Deadline" ColumnName="ParticipantRegistration_Deadline" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailTags">
+            <EntityTypeMapping TypeName="ConferenceDBModel.EmailTag">
+              <MappingFragment StoreEntitySet="EmailTag">
+                <ScalarProperty Name="EmailTagsId" ColumnName="EmailTagsId" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="Representation" ColumnName="Representation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fees">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Fee">
+              <MappingFragment StoreEntitySet="Fee">
+                <ScalarProperty Name="FeeId" ColumnName="FeeId" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="EarlyBird" ColumnName="EarlyBird" />
+                <ScalarProperty Name="Normal" ColumnName="Normal" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+                <ScalarProperty Name="DisplayForNormal" ColumnName="DisplayForNormal" />
+                <ScalarProperty Name="DisplayForEarlyBird" ColumnName="DisplayForEarlyBird" />
+                <ScalarProperty Name="Delete" ColumnName="Delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FontNames">
+            <EntityTypeMapping TypeName="ConferenceDBModel.FontName">
+              <MappingFragment StoreEntitySet="FontName">
+                <ScalarProperty Name="FontNameId" ColumnName="FontNameId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvitationEmailStatus">
+            <EntityTypeMapping TypeName="ConferenceDBModel.InvitationEmailStatu">
+              <MappingFragment StoreEntitySet="InvitationEmailStatus">
+                <ScalarProperty Name="InvitationEmailStatusId" ColumnName="InvitationEmailStatusId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvitationStatus">
+            <EntityTypeMapping TypeName="ConferenceDBModel.InvitationStatu">
+              <MappingFragment StoreEntitySet="InvitationStatus">
+                <ScalarProperty Name="InvitationStatusId" ColumnName="InvitationStatusId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotificationEmails">
+            <EntityTypeMapping TypeName="ConferenceDBModel.NotificationEmail">
+              <MappingFragment StoreEntitySet="NotificationEmail">
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PresenterRegistration" ColumnName="PresenterRegistration" />
+                <ScalarProperty Name="ParticipantRegistration" ColumnName="ParticipantRegistration" />
+                <ScalarProperty Name="ParticipantConfirmation" ColumnName="ParticipantConfirmation" />
+                <ScalarProperty Name="AbstractSubmission" ColumnName="AbstractSubmission" />
+                <ScalarProperty Name="AbstractAcceptance" ColumnName="AbstractAcceptance" />
+                <ScalarProperty Name="AbstractRejection" ColumnName="AbstractRejection" />
+                <ScalarProperty Name="FullPaperSubmission" ColumnName="FullPaperSubmission" />
+                <ScalarProperty Name="PaperAcceptance" ColumnName="PaperAcceptance" />
+                <ScalarProperty Name="PaperRejection" ColumnName="PaperRejection" />
+                <ScalarProperty Name="CameraReadyPaper" ColumnName="CameraReadyPaper" />
+                <ScalarProperty Name="ReviewerInvitation" ColumnName="ReviewerInvitation" />
+                <ScalarProperty Name="PaperForReviewing" ColumnName="PaperForReviewing" />
+                <ScalarProperty Name="FinishReview" ColumnName="FinishReview" />
+                <ScalarProperty Name="UserInvitation" ColumnName="UserInvitation" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Papers">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Paper">
+              <MappingFragment StoreEntitySet="Paper">
+                <ScalarProperty Name="PaperId" ColumnName="PaperId" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PaperTitle" ColumnName="PaperTitle" />
+                <ScalarProperty Name="AuthorList" ColumnName="AuthorList" />
+                <ScalarProperty Name="Affiliation" ColumnName="Affiliation" />
+                <ScalarProperty Name="Presenter" ColumnName="Presenter" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="PaperDescription" ColumnName="PaperDescription" />
+                <ScalarProperty Name="AbstractFile" ColumnName="AbstractFile" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+                <ScalarProperty Name="AbstractSubmissionDate" ColumnName="AbstractSubmissionDate" />
+                <ScalarProperty Name="AbstractSubmissionNotification" ColumnName="AbstractSubmissionNotification" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="FullPaperFile" ColumnName="FullPaperFile" />
+                <ScalarProperty Name="CameraReadyPaperFile" ColumnName="CameraReadyPaperFile" />
+                <ScalarProperty Name="FullPaperSubmissionDate" ColumnName="FullPaperSubmissionDate" />
+                <ScalarProperty Name="CameraReadyPaperSubmissionDate" ColumnName="CameraReadyPaperSubmissionDate" />
+                <ScalarProperty Name="AbstractPaperStatus" ColumnName="AbstractPaperStatus" />
+                <ScalarProperty Name="FullPaperStatus" ColumnName="FullPaperStatus" />
+                <ScalarProperty Name="AbstractTotalNumberOfPages" ColumnName="AbstractTotalNumberOfPages" />
+                <ScalarProperty Name="FullPaperTotalNumberOfPages" ColumnName="FullPaperTotalNumberOfPages" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentStatus">
+            <EntityTypeMapping TypeName="ConferenceDBModel.PaymentStatu">
+              <MappingFragment StoreEntitySet="PaymentStatus">
+                <ScalarProperty Name="PaymentStatusId" ColumnName="PaymentStatusId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviewers">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Reviewer">
+              <MappingFragment StoreEntitySet="Reviewer">
+                <ScalarProperty Name="ReviewerId" ColumnName="ReviewerId" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="ReviewerTypeId" ColumnName="ReviewerTypeId" />
+                <ScalarProperty Name="ReviewerName" ColumnName="ReviewerName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Instituition" ColumnName="Instituition" />
+                <ScalarProperty Name="InvitationStatusId" ColumnName="InvitationStatusId" />
+                <ScalarProperty Name="InvitationEmailStatusId" ColumnName="InvitationEmailStatusId" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+                <ScalarProperty Name="Delete" ColumnName="Delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReviewerTypes">
+            <EntityTypeMapping TypeName="ConferenceDBModel.ReviewerType">
+              <MappingFragment StoreEntitySet="ReviewerType">
+                <ScalarProperty Name="ReviewerTypeId" ColumnName="ReviewerTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReviewItems">
+            <EntityTypeMapping TypeName="ConferenceDBModel.ReviewItem">
+              <MappingFragment StoreEntitySet="ReviewItem">
+                <ScalarProperty Name="ReviewItemId" ColumnName="ReviewItemId" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+                <ScalarProperty Name="OverallComments" ColumnName="OverallComments" />
+                <ScalarProperty Name="AbstractSufficientlyInformative" ColumnName="AbstractSufficientlyInformative" />
+                <ScalarProperty Name="ClarityInThePresentationOfFindings" ColumnName="ClarityInThePresentationOfFindings" />
+                <ScalarProperty Name="MethodologyAppropriateToStudy" ColumnName="MethodologyAppropriateToStudy" />
+                <ScalarProperty Name="ConclusionSupportedByDataAnalysis" ColumnName="ConclusionSupportedByDataAnalysis" />
+                <ScalarProperty Name="NoveltyOfFinding" ColumnName="NoveltyOfFinding" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Venue" ColumnName="Venue" />
+                <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ConferenceDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Titles">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Title">
+              <MappingFragment StoreEntitySet="Title">
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Topics">
+            <EntityTypeMapping TypeName="ConferenceDBModel.Topic">
+              <MappingFragment StoreEntitySet="Topic">
+                <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+                <ScalarProperty Name="Delete" ColumnName="Delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ConferenceDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="encryptedPassword" ColumnName="encryptedPassword" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="Instituition" ColumnName="Instituition" />
+                <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ResearchField" ColumnName="ResearchField" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+                <ScalarProperty Name="LoggedIn" ColumnName="LoggedIn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="ConferenceDBModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

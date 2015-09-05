@@ -1,0 +1,42 @@
+﻿@model ConferenceManagementSystem.Models.Topic
+
+@{
+    ViewBag.Title = "Confirm Delete";
+}
+
+<h2 class="not-login">Confirm Delete <small class="delete-warnings"> make sure you really want it gone!</small></h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Menu", "Conference", new { id = Model.ConferenceId }, null)</li>
+    <li>@Html.ActionLink("Conference Topic", "Index", "Topic", new { id = Model.ConferenceId }, null)</li>
+    <li class="active">Confirm Delete</li>
+</ol>
+
+<div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    <div class="form-horizontal form-center form-gradient">
+        <br />
+        @Html.HiddenFor(model => model.TopicId)
+        @Html.HiddenFor(model => model.ConferenceId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-3" })
+            @Html.HiddenFor(model => model.Name)
+
+            <div class="col-md-3">
+                <p class="form-control-static">@Html.DisplayFor(model => model.Name)</p>
+            </div>
+        </div>
+        <hr/>
+    </div>
+
+        <div class="form-actions no-color col-md-offset-2">
+            @Html.ActionLink("Back to List", "Index", new { id = Model.ConferenceId }, new { @class = "btn btn-default btn-gradient" })
+            <input type="submit" value="Delete" class="btn btn-default btn-delete" />
+        </div>
+}
+</div>
+

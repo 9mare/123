@@ -1,0 +1,83 @@
+﻿@model ConferenceManagementSystem.Models.Reviewer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reviewer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvitationEmailStatus.InvitationEmailStatusId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvitationEmailStatus.InvitationEmailStatusId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvitationStatus.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvitationStatus.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewerType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewerType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instituition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instituition)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReviewerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

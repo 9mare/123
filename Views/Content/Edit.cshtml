@@ -1,0 +1,154 @@
+﻿@model ConferenceManagementSystem.Models.Content
+
+@{
+    ViewBag.Title = "Edit Contents";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea",
+        theme: "modern",
+        plugins: [
+            "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+            "searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern imagetools bdesk_photo"
+        ],
+        toolbar1: "bdesk_photo undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        toolbar2: "print preview media | forecolor backcolor emoticons",
+        image_advtab: true,
+        templates: [
+            { title: 'Test template 1', content: 'Test 1' },
+            { title: 'Test template 2', content: 'Test 2' }
+        ]
+    });
+</script>
+
+<h2 class="not-login">Edit<small> content of conference here</small></h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Menu", "Conference", new { id = Model.ConferenceId }, null)</li>
+    <li class="active">Edit Content</li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+ <div class="form-horizontal form-center form-gradient">
+
+     @Html.ValidationSummary(true)
+     @Html.HiddenFor(model => model.ContentId)
+     @Html.HiddenFor(model => model.ConferenceId)
+
+        <div class="tab-content">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#newInfo">Presenter Registration</a></li>
+                <li><a data-toggle="tab" href="#welcomeTitle">Welcome Title</a></li>
+                <li><a data-toggle="tab" href="#welcomeText">Welcome Text</a></li>
+                <li><a data-toggle="tab" href="#organizer">Organizer</a></li>
+                <li><a data-toggle="tab" href="#accommodation">Accommodation</a></li>
+                <li><a data-toggle="tab" href="#committee">Committee</a></li>
+                <li><a data-toggle="tab" href="#callforPaper">Call For Paper</a></li>
+                <li><a data-toggle="tab" href="#programmes">Programmes</a></li>
+            </ul>
+            <hr />
+
+            <div id="newInfo" class="tab-pane fade in active">
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.NewInfo)
+                        @Html.ValidationMessageFor(model => model.NewInfo)
+                    </div>
+                </div>
+            </div>
+
+            <div id="welcomeTitle" class="tab-pane fade">
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.WelcomeTitle)
+                        @Html.ValidationMessageFor(model => model.WelcomeTitle)
+                    </div>
+                </div>
+            </div>
+
+            <div id="welcomeText" class="tab-pane fade">
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.WelcomeText)
+                        @Html.ValidationMessageFor(model => model.WelcomeText)
+                    </div>
+                </div>
+            </div>
+
+            <div id="organizer" class="tab-pane fade">
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.Organizer)
+                        @Html.ValidationMessageFor(model => model.Organizer)
+                    </div>
+                </div>
+            </div>
+
+            <div id="accommodation" class="tab-pane fade">
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.Accomodation)
+                        @Html.ValidationMessageFor(model => model.Accomodation)
+                    </div>
+                </div>
+            </div>
+
+            <div id="committee" class="tab-pane fade">
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.Committee)
+                        @Html.ValidationMessageFor(model => model.Committee)
+                    </div>
+                </div>
+            </div>
+
+            <div id="callforPaper" class="tab-pane fade">
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.CallForPapers)
+                        @Html.ValidationMessageFor(model => model.CallForPapers)
+                    </div>
+                </div>
+            </div>
+
+            <div id="programmes" class="tab-pane fade">
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.Programmes)
+                        @Html.ValidationMessageFor(model => model.Programmes)
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+            <div class= "col-md-12">
+                <input type="submit" value="Save" class="btn btn-default btn-gradient" />
+            </div>
+        </div>
+        <hr />
+    </div>
+}
+
+        <div class="col-md-offset-2">
+            @Html.ActionLink("Back to Conference Menu", "Menu", "Conference", new { id = Model.ConferenceId }, new { @class = "btn btn-default btn-gradient" })
+        </div>

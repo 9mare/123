@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConferenceDBModelStoreContainer" CdmEntityContainer="ConferenceDBEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="ConferenceDBModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="encryptedPassword" ColumnName="encryptedPassword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="LoggedIn" ColumnName="LoggedIn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attendees">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Attendee">
+        <MappingFragment StoreEntitySet="Attendee">
+          <ScalarProperty Name="AttendeeId" ColumnName="AttendeeId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="FeeId" ColumnName="FeeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conferences">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Conference">
+        <MappingFragment StoreEntitySet="Conference">
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="encryptedPassword" ColumnName="encryptedPassword" />
+          <ScalarProperty Name="OrganizerName" ColumnName="OrganizerName" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="PaperPrefix" ColumnName="PaperPrefix" />
+          <ScalarProperty Name="LinkDirectory" ColumnName="LinkDirectory" />
+          <ScalarProperty Name="LoggedIn" ColumnName="LoggedIn" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Short_Name" ColumnName="Short_Name" />
+          <ScalarProperty Name="ChairmanName" ColumnName="ChairmanName" />
+          <ScalarProperty Name="ChairmanEmail" ColumnName="ChairmanEmail" />
+          <ScalarProperty Name="ConferencePhone" ColumnName="ConferencePhone" />
+          <ScalarProperty Name="SystemEmail" ColumnName="SystemEmail" />
+          <ScalarProperty Name="SecretariatAddress" ColumnName="SecretariatAddress" />
+          <ScalarProperty Name="ConferenceTime" ColumnName="ConferenceTime" />
+          <ScalarProperty Name="ConferenceVenue" ColumnName="ConferenceVenue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contents">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Content">
+        <MappingFragment StoreEntitySet="Content">
+          <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+          <ScalarProperty Name="NewInfo" ColumnName="NewInfo" />
+          <ScalarProperty Name="WelcomeTitle" ColumnName="WelcomeTitle" />
+          <ScalarProperty Name="WelcomeText" ColumnName="WelcomeText" />
+          <ScalarProperty Name="Organizer" ColumnName="Organizer" />
+          <ScalarProperty Name="Accomodation" ColumnName="Accomodation" />
+          <ScalarProperty Name="Committee" ColumnName="Committee" />
+          <ScalarProperty Name="CallForPapers" ColumnName="CallForPapers" />
+          <ScalarProperty Name="Programmes" ColumnName="Programmes" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DateDealines">
+      <EntityTypeMapping TypeName="ConferenceDBModel.DateDealine">
+        <MappingFragment StoreEntitySet="DateDealine">
+          <ScalarProperty Name="DateDealineId" ColumnName="DateDealineId" />
+          <ScalarProperty Name="Abstract_Deadline" ColumnName="Abstract_Deadline" />
+          <ScalarProperty Name="AbstractAcceptance_Notif" ColumnName="AbstractAcceptance_Notif" />
+          <ScalarProperty Name="FullPaper_Deadline" ColumnName="FullPaper_Deadline" />
+          <ScalarProperty Name="PaperAcceptance_Notif" ColumnName="PaperAcceptance_Notif" />
+          <ScalarProperty Name="CameraReadyPaper_Deadline" ColumnName="CameraReadyPaper_Deadline" />
+          <ScalarProperty Name="EarlyBird_Deadline" ColumnName="EarlyBird_Deadline" />
+          <ScalarProperty Name="ParticipantRegistration_Deadline" ColumnName="ParticipantRegistration_Deadline" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fees">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Fee">
+        <MappingFragment StoreEntitySet="Fee">
+          <ScalarProperty Name="FeeId" ColumnName="FeeId" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="EarlyBird" ColumnName="EarlyBird" />
+          <ScalarProperty Name="Normal" ColumnName="Normal" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="DisplayForNormal" ColumnName="DisplayForNormal" />
+          <ScalarProperty Name="DisplayForEarlyBird" ColumnName="DisplayForEarlyBird" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvitationEmailStatus">
+      <EntityTypeMapping TypeName="ConferenceDBModel.InvitationEmailStatu">
+        <MappingFragment StoreEntitySet="InvitationEmailStatus">
+          <ScalarProperty Name="InvitationEmailStatusId" ColumnName="InvitationEmailStatusId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvitationStatus">
+      <EntityTypeMapping TypeName="ConferenceDBModel.InvitationStatu">
+        <MappingFragment StoreEntitySet="InvitationStatus">
+          <ScalarProperty Name="InvitationStatusId" ColumnName="InvitationStatusId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationEmails">
+      <EntityTypeMapping TypeName="ConferenceDBModel.NotificationEmail">
+        <MappingFragment StoreEntitySet="NotificationEmail">
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="PresenterRegistration" ColumnName="PresenterRegistration" />
+          <ScalarProperty Name="ParticipantRegistration" ColumnName="ParticipantRegistration" />
+          <ScalarProperty Name="ParticipantConfirmation" ColumnName="ParticipantConfirmation" />
+          <ScalarProperty Name="AbstractSubmission" ColumnName="AbstractSubmission" />
+          <ScalarProperty Name="AbstractAcceptance" ColumnName="AbstractAcceptance" />
+          <ScalarProperty Name="AbstractRejection" ColumnName="AbstractRejection" />
+          <ScalarProperty Name="FullPaperSubmission" ColumnName="FullPaperSubmission" />
+          <ScalarProperty Name="PaperAcceptance" ColumnName="PaperAcceptance" />
+          <ScalarProperty Name="PaperRejection" ColumnName="PaperRejection" />
+          <ScalarProperty Name="CameraReadyPaper" ColumnName="CameraReadyPaper" />
+          <ScalarProperty Name="ReviewerInvitation" ColumnName="ReviewerInvitation" />
+          <ScalarProperty Name="PaperForReviewing" ColumnName="PaperForReviewing" />
+          <ScalarProperty Name="FinishReview" ColumnName="FinishReview" />
+          <ScalarProperty Name="UserInvitation" ColumnName="UserInvitation" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Papers">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Paper">
+        <MappingFragment StoreEntitySet="Paper">
+          <ScalarProperty Name="PaperId" ColumnName="PaperId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PaperTitle" ColumnName="PaperTitle" />
+          <ScalarProperty Name="AuthorList" ColumnName="AuthorList" />
+          <ScalarProperty Name="Co_Author" ColumnName="Co_Author" />
+          <ScalarProperty Name="Affiliation" ColumnName="Affiliation" />
+          <ScalarProperty Name="Presenter" ColumnName="Presenter" />
+          <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+          <ScalarProperty Name="PaperDescription" ColumnName="PaperDescription" />
+          <ScalarProperty Name="AbstractFile" ColumnName="AbstractFile" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="AbstractSubmissionDate" ColumnName="AbstractSubmissionDate" />
+          <ScalarProperty Name="AbstractSubmissionNotification" ColumnName="AbstractSubmissionNotification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviewers">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Reviewer">
+        <MappingFragment StoreEntitySet="Reviewer">
+          <ScalarProperty Name="ReviewerId" ColumnName="ReviewerId" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="ReviewerTypeId" ColumnName="ReviewerTypeId" />
+          <ScalarProperty Name="ReviewerName" ColumnName="ReviewerName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Instituition" ColumnName="Instituition" />
+          <ScalarProperty Name="InvitationStatusId" ColumnName="InvitationStatusId" />
+          <ScalarProperty Name="InvitationEmailStatusId" ColumnName="InvitationEmailStatusId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReviewerTypes">
+      <EntityTypeMapping TypeName="ConferenceDBModel.ReviewerType">
+        <MappingFragment StoreEntitySet="ReviewerType">
+          <ScalarProperty Name="ReviewerTypeId" ColumnName="ReviewerTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReviewItems">
+      <EntityTypeMapping TypeName="ConferenceDBModel.ReviewItem">
+        <MappingFragment StoreEntitySet="ReviewItem">
+          <ScalarProperty Name="ReviewItemId" ColumnName="ReviewItemId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ReviewTitleId" ColumnName="ReviewTitleId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReviewTitles">
+      <EntityTypeMapping TypeName="ConferenceDBModel.ReviewTitle">
+        <MappingFragment StoreEntitySet="ReviewTitle">
+          <ScalarProperty Name="ReviewTitleId" ColumnName="ReviewTitleId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ReviewTypeId" ColumnName="ReviewTypeId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReviewTypes">
+      <EntityTypeMapping TypeName="ConferenceDBModel.ReviewType">
+        <MappingFragment StoreEntitySet="ReviewType">
+          <ScalarProperty Name="ReviewTypeId" ColumnName="ReviewTypeId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="HtmlElement" ColumnName="HtmlElement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Titles">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Title">
+        <MappingFragment StoreEntitySet="Title">
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="ConferenceDBModel.Topic">
+        <MappingFragment StoreEntitySet="Topic">
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ConferenceDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="encryptedPassword" ColumnName="encryptedPassword" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+          <ScalarProperty Name="Instituition" ColumnName="Instituition" />
+          <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="ResearchField" ColumnName="ResearchField" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="LoggedIn" ColumnName="LoggedIn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="ConferenceDBModel.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,136 @@
+﻿@model ConferenceManagementSystem.Models.DateDealine
+
+@{
+    ViewBag.Title = "Edit Deadlines";
+}
+
+<h2 class="not-login">Edit<small> all available deadlines here</small></h2>
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Menu", "Conference", new { id = Model.ConferenceId }, null)</li>
+    <li class="active">Edit Deadlines</li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal form-center form-gradient">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.DateDealineId)
+        @Html.HiddenFor(model => model.ConferenceId)
+
+        <div class="form-group">
+            <p class="control-label col-md-3"><b>Abstract</b></p>
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Abstract_Deadline)
+                @Html.ValidationMessageFor(model => model.Abstract_Deadline)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-3"><b>Abstract Acceptance</b></p>
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.AbstractAcceptance_Notif)
+                @Html.ValidationMessageFor(model => model.AbstractAcceptance_Notif)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-3"><b>Full Paper</b></p>
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.FullPaper_Deadline)
+                @Html.ValidationMessageFor(model => model.FullPaper_Deadline)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-3"><b>Paper Acceptance</b></p>
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.PaperAcceptance_Notif)
+                @Html.ValidationMessageFor(model => model.PaperAcceptance_Notif)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-3"><b>Camera Ready Paper</b></p>
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.CameraReadyPaper_Deadline)
+                @Html.ValidationMessageFor(model => model.CameraReadyPaper_Deadline)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-3"><b>Early Bird</b></p>
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.EarlyBird_Deadline)
+                @Html.ValidationMessageFor(model => model.EarlyBird_Deadline)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-3"><b>Participant Registration</b></p>
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.ParticipantRegistration_Deadline)
+                @Html.ValidationMessageFor(model => model.ParticipantRegistration_Deadline)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Save" class="btn btn-default btn-gradient" />
+            </div>
+        </div>
+        <hr/>
+    </div>
+}
+
+@Html.Raw(TempData["msg"])
+
+<div class="col-md-offset-2">
+    @Html.ActionLink("Back to Conference Menu", "Menu", "Conference", new { id = Model.ConferenceId }, new { @class = "btn btn-default btn-gradient" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Abstract_Deadline").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/MM/yy'
+            });
+            $("#AbstractAcceptance_Notif").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/MM/yy'
+            });
+            $("#FullPaper_Deadline").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/MM/yy'
+            });
+            $("#PaperAcceptance_Notif").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/MM/yy'
+            });
+            $("#CameraReadyPaper_Deadline").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/MM/yy'
+            });
+            $("#EarlyBird_Deadline").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/MM/yy'
+            });
+            $("#ParticipantRegistration_Deadline").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/MM/yy'
+            });
+        });
+    </script>
+}

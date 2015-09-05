@@ -1,0 +1,113 @@
+﻿@model ConferenceManagementSystem.Models.AbstractFileFormat
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/AttendeeLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AbstractFileFormat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Alignment.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alignment.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conference.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conference.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FontName.FontNameId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FontName.FontNameId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FontSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FontSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Italic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Italic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Margin_Top)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Margin_Top)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Margin_Bottom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Margin_Bottom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Margin_Left)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Margin_Left)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Margin_Right)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Margin_Right)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineSpacing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineSpacing)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

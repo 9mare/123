@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ConferenceManagementSystem.Models.Fee>
+
+@{
+    ViewBag.Title = "Fee Index";
+}
+
+<h2 class="not-login">Fees<small> manage conference fees here</small></h2>
+
+@if (Session["Name"].ToString() == "conference")
+{
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Menu", "Conference", new { id = TempData["ConferenceId"] }, null)</li>
+        <li class="active">Fees</li>
+    </ol>
+}
+else
+{
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Index", "Conference", new { id = TempData["ConferenceId"] }, null)</li>
+        <li>@Html.ActionLink("Edit User", "Edit", "Conference", new { id = TempData["ConferenceId"] }, null)</li>
+        <li class="active">Fees</li>
+    </ol>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Currency)
+        </th>
+        <th>
+            <p><b>Early Bird</b></p>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Normal)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Currency)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.EarlyBird)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Normal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FeeId }, new { @class = "btn btn-default btn-gradient" })
+
+            @Html.ActionLink("Delete", "Delete", new { id=item.FeeId }, new { @class = "btn btn-default btn-delete" })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @if (Session["Name"].ToString() == "conference")
+    {
+        @Html.ActionLink("Go Back to Conference Menu", "Menu", "Conference", new { id = TempData["ConferenceId"] }, new { @class = "btn btn-default btn-gradient" })
+    }
+    else
+    {
+        @Html.ActionLink("Go Back to Admin Edit Page", "Edit", "Conference", new { id = TempData["ConferenceId"] }, new { @class = "btn btn-default btn-gradient" })
+    }
+
+    @Html.ActionLink("Create New", "Create", "Fee", new { id = TempData["ConferenceId"] }, new { @class = "btn btn-default btn-new" })
+</p>
+

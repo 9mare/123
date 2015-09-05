@@ -1,0 +1,61 @@
+﻿@model ConferenceManagementSystem.Models.BreakTime
+
+@*@{
+    Layout = null;
+}*@
+<!DOCTYPE html>
+<html>
+<head>
+    @*<link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
+</head>
+<body>
+    @using (Html.BeginForm("Save", "BasicScheduler"))
+    {
+        @Html.HiddenFor(model => Model.BreakTimeId)
+        <div>
+            From
+            @Html.TextBoxFor(model => Model.StartTime, new { @readonly = "readonly" })
+            To
+            @Html.TextBoxFor(model => Model.EndDate, new { @readonly = "readonly" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.TopicId, "TopicId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                @Html.DropDownList("TopicId", String.Empty)
+                @Html.ValidationMessageFor(model => model.TopicId)
+            </div>
+        </div>
+        <p>
+            <input type="submit" name="actionButton" value="Save" />
+            <input type="button" onclick="lightbox.close()/* helper-method, only available in custom lightbox */" value="Close" />
+            <input type="submit" name="actionButton" value="Delete" />
+        </p>
+    }
+</body>
+</html>
+
+@section Scripts {
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")*@
+    @*<script type="text/javascript">
+            $(document).ready(function () {
+                $("#StartTime").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: 'dd/MM/yy'
+                });
+            });
+            $(document).ready(function () {
+                $("#EndDate").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: 'dd/MM/yy'
+                });
+            });
+    </script>*@
+ }
+
+

@@ -1,0 +1,84 @@
+﻿@model ConferenceManagementSystem.Models.Fee
+
+@{
+    ViewBag.Title = "Edit Fee";
+}
+
+<h2 class="not-login">Edit Fee<small> change the fees charged here</small></h2>
+
+@if (Session["Name"].ToString() == "conference")
+{
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Menu", "Conference", new { id = Model.ConferenceId }, null)</li>
+        <li>@Html.ActionLink("Fees", "Index", "Fee", new { id = Model.ConferenceId }, null)</li>
+        <li class="active">Edit Fees</li>
+    </ol>
+}
+else
+{
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "Index", "Conference", new { id = Model.ConferenceId }, null)</li>
+        <li>@Html.ActionLink("Edit User", "Edit", "Conference", new { id = Model.ConferenceId }, null)</li>
+        <li>@Html.ActionLink("Fees", "Index", "Fee", new { id = Model.ConferenceId }, null)</li>
+        <li class="active">Edit Fees</li>
+    </ol>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal form-center form-gradient">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.FeeId)
+        @Html.HiddenFor(model => model.ConferenceId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Category)
+                @Html.ValidationMessageFor(model => model.Category)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Currency, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Currency)
+                @Html.ValidationMessageFor(model => model.Currency)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EarlyBird, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.EarlyBird)
+                @Html.ValidationMessageFor(model => model.EarlyBird)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Normal, new { @class = "control-label col-md-3" })
+            <div class="col-md-9 form-control-static">
+                @Html.EditorFor(model => model.Normal)
+                @Html.ValidationMessageFor(model => model.Normal)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Save" class="btn btn-default btn-gradient" />
+            </div>
+        </div>
+        <hr/>
+    </div>
+}
+
+<div class="col-md-offset-2">
+    @Html.ActionLink("Back to Fees List", "Index", new { id = Model.ConferenceId}, new { @class = "btn btn-default btn-gradient" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

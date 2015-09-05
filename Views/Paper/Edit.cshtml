@@ -1,0 +1,114 @@
+﻿@model ConferenceManagementSystem.Models.Paper
+
+@{
+    Layout = "~/Views/Shared/AttendeeLayout.cshtml"; 
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Paper</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.PaperId)
+            @Html.HiddenFor(model => model.ConferenceId)
+            @Html.HiddenFor(model => model.UserId)
+            @Html.HiddenFor(model => model.AbstractTotalNumberOfPages)
+            @Html.HiddenFor(model => model.AbstractFile)
+            @Html.HiddenFor(model => model.AbstractSubmissionDate)
+            @Html.HiddenFor(model => model.Prefix)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ConferenceId, "Conference", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.conference.ConferenceName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PaperTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PaperTitle)
+                    @Html.ValidationMessageFor(model => model.PaperTitle)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AuthorList, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AuthorList)
+                    @Html.ValidationMessageFor(model => model.AuthorList)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Affiliation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Affiliation)
+                    @Html.ValidationMessageFor(model => model.Affiliation)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Presenter, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Presenter)
+                    @Html.ValidationMessageFor(model => model.Presenter)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Abstract, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Abstract)
+                    @Html.ValidationMessageFor(model => model.Abstract)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Keywords, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Keywords)
+                    @Html.ValidationMessageFor(model => model.Keywords)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TopicId, "Topic", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("TopicId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.TopicId)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Prefix, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.Prefix)
+                    @Html.ValidationMessageFor(model => model.Prefix)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
